@@ -90,6 +90,7 @@
     "@types/source-map": "^0.1.26",
     "@types/uglify-js": "^2.0.27",
     "@types/webpack": "^1.12.29",
+    "@types/jquery": "^1.10.31",
     "angular2-template-loader": "^0.5.0",
     "awesome-typescript-loader": "^2.2.1",
     "codelyzer": "~0.0.28",
@@ -130,7 +131,8 @@
     "webpack-dev-middleware": "^1.6.1",
     "webpack-dev-server": "^2.1.0-beta.2",
     "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "jquery": "3.1.0"
   },
   "repository": {
     "type": "git",

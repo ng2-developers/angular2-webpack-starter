@@ -18,6 +18,7 @@ import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
+import { NavBarComponent } from './common/navbar.component';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -41,7 +42,8 @@ type StoreType = {
     About,
     Home,
     NoContent,
-    XLarge
+    XLarge,
+    NavBarComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,

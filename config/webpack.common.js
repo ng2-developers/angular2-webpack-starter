@@ -249,6 +249,13 @@ module.exports = function(options) {
         to: 'assets'
       }]),
 
+      /* JQuery */
+      new webpack.ProvidePlugin({
+        jQuery: 'jquery',
+        $: 'jquery',
+        jquery: 'jquery'
+      }),
+
       /*
        * Plugin: HtmlWebpackPlugin
        * Description: Simplifies creation of HTML files to serve your webpack bundles.
