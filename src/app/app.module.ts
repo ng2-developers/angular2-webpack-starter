@@ -18,7 +18,8 @@ import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
-import { NavBarComponent } from './common/navbar.component';
+import { CtlCommonModule } from './ctl-common/ctl-common.module';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -42,13 +43,13 @@ type StoreType = {
     About,
     Home,
     NoContent,
-    XLarge,
-    NavBarComponent
+    XLarge
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
+    CtlCommonModule,
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
