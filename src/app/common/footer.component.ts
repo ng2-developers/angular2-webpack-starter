@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './footer.template.html'
 })
 export class FooterComponent {
-    url = 'https://twitter.com/AngularClass';
+    url = 'https://github.com/CenturyLinkCloud/Cyclops/tree/v1.5.0';
 }

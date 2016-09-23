@@ -10,15 +10,20 @@ import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularcla
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+
 // App is our top level component
 import { App } from './app.component';
 import { APP_RESOLVER_PROVIDERS, NGRX_MODULES } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
+
 import { Home } from './home';
 import { About } from './about';
 import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
-import { CtlCommonModule } from './ctl-common/ctl-common.module';
+
+import { CtlHomeComponent } from './home/ctl-home.component';
+import { CtlCommonModule }  from './common/common.module';
+import { ProductModule }    from './product/product.module';
 
 
 // Application wide providers
@@ -43,7 +48,8 @@ type StoreType = {
     About,
     Home,
     NoContent,
-    XLarge
+    XLarge,
+    CtlHomeComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -51,6 +57,7 @@ type StoreType = {
     ReactiveFormsModule,
     HttpModule,
     CtlCommonModule,
+    ProductModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     ...NGRX_MODULES
   ],
