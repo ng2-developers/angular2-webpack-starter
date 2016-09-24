@@ -41,6 +41,7 @@
     "server:dev": "webpack-dev-server --config config/webpack.dev.js --progress --profile --watch --content-base src/",
     "server:prod": "http-server dist --cors",
     "server": "npm run server:dev",
+    "serve":  "concurrently \"npm run json-server\" \"npm run server\"",
     "start:hmr": "npm run server:dev:hmr",
     "start": "npm run server:dev",
     "test": "karma start",
@@ -56,7 +57,8 @@
     "webdriver:start": "npm run webdriver-manager start",
     "webdriver:update": "npm run webdriver-manager update",
     "webpack-dev-server": "webpack-dev-server",
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "json-server": "json-server --watch src/assets/mock-data/db.json --port 3001"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
@@ -82,7 +84,8 @@
     "http-server": "^0.9.0",
     "ie-shim": "^0.1.0",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "~0.6.17"
+    "zone.js": "~0.6.17",
+    "concurrently": "^2.0.0"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",

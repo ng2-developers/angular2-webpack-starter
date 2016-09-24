@@ -56,11 +56,18 @@ git clone --depth 1 https://github.com/angularclass/angular2-webpack-starter.git
 # change directory to our repo
 cd angular2-webpack-starter
 
+# install the json-server
+npm i -g json-server
+
 # install the repo with npm
 npm install
 
-# start the server
-npm start
+# start the server at 3000 and json-server at 3001
+npm run json-server
+npm server
+
+# start both together with one command
+npm run serve
 
 # use Hot Module Replacement
 npm run server:dev:hmr

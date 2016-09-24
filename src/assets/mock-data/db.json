@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "name": "SDWAN Location 1",
+      "description": "Address 1",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "SDWAN Location 2",
+      "description": "SDWAN Address 2"
+    },
+    {
+      "name": "SDWAN Location 4",
+      "description": "Update Address",
+      "id": 4
+    },
+    {
+      "name": "SDWAN Location 5",
+      "description": "Address 5 - ETA Chennai",
+      "id": 5
+    },
+    {
+      "id": 6,
+      "name": "SDWAN New Location",
+      "description": "Denver"
+    },
+    {
+      "name": "New Location",
+      "description": "serwer",
+      "id": 7
+    },
+    {
+      "name": "erewrt",
+      "description": "werwer",
+      "id": 8
+    },
+    {
+      "name": "sadasd",
+      "description": "asdasd",
+      "id": 9
+    }
+  ],
+  "widgets": [
+    {
+      "id": 1,
+      "name": "Widget 1",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "Widget 2",
+      "price": 200
+    },
+    {
+      "id": 3,
+      "name": "Widget 3",
+      "price": 300
+    }
+  ],
+  "userInfo": {
+    "name": "Tarun Sukhu",
+    "email": "tsukhu@hcl.com",
+    "enterpriseID": "EIN12323232",
+    "ownTransport": true
+  }
+}
