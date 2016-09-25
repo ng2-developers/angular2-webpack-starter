@@ -7,9 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 
-import { items } from './common/reducers/items.store';
-import { selectedItem } from './common/reducers/selectedItem.store';
-import { userInfo } from './common/reducers/userInfo.store';
+// import { items } from './common/reducers/items.store';
+// import { selectedItem } from './common/reducers/selectedItem.store';
+import { user } from './common/reducers/user.store';
 
 @Injectable()
 export class DataResolver implements Resolve<any> {
@@ -23,7 +23,7 @@ export class DataResolver implements Resolve<any> {
 
 // ngrx store services
 export const NGRX_MODULES = [
-  StoreModule.provideStore({items, selectedItem, userInfo}),
+  StoreModule.provideStore({user}),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
         visible: false,

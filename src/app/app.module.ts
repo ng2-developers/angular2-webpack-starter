@@ -24,8 +24,10 @@ import { XLarge } from './home/x-large';
 import { CtlHomeComponent } from './home/ctl-home.component';
 import { CtlCommonModule }  from './common/common.module';
 import { ProductModule }    from './product/product.module';
-
-
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { user } from './common/reducers/user.store';
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -59,7 +61,14 @@ type StoreType = {
     CtlCommonModule,
     ProductModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
-    ...NGRX_MODULES
+    StoreModule.provideStore({ user: user}),
+    StoreDevtoolsModule.instrumentStore({
+      monitor: useLogMonitor({
+        visible: false,
+        position: 'right'
+      })
+    }),
+    StoreLogMonitorModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

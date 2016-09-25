@@ -1,2 +1,5 @@
+{{ (user | async)?.email }}
+<button *ngIf="(user | async)?.id ==0" (click)="login()">Login</button>
+<button *ngIf="(user | async)?.id >0" (click)="logout()">Logout</button>
 <product-description></product-description>
 <product-pricing></product-pricing>

@@ -58,10 +58,8 @@
       "price": 300
     }
   ],
-  "userInfo": {
-    "name": "Tarun Sukhu",
-    "email": "tsukhu@hcl.com",
-    "enterpriseID": "EIN12323232",
-    "ownTransport": true
+  "user": {
+    "id": 1,
+    "email": "tsukhu@hcl.com"
   }
 }
