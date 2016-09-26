@@ -6,7 +6,7 @@ const initialState: User = {
     email: ''
 };
 
-export const user = (state: any = [], {type, payload}) => {
+export const userReducer = (state: any = [], {type, payload}) => {
   switch (type) {
     case 'CREATE_USER':
       return payload;
