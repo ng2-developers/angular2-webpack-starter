@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 
 import { AppStore } from '../common/models/appstore.model';
-import { User } from '../common/models/user.model';
+import { User, EnterpriseInfo } from '../common/models/user.model';
 import { AuthService } from '../common/service/auth.service';
 
 
@@ -21,8 +21,12 @@ export class CtlHomeComponent {
       this.user.subscribe(v => console.log(v));
   }
 
-  login() {
-    this.authService.login('tsukhu@hcl.com', 'xxx');
+  addUserInfo() {
+    let entInfo: EnterpriseInfo = {
+      ein: 12345,
+      ownTransport: true
+    }
+    this.authService.addUserInfo(entInfo);
   }
 
   logout() {

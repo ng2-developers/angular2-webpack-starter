@@ -16,6 +16,8 @@ export const userReducer = (state: any = [], {type, payload}) => {
       return initialState;
     case 'INIT_USER':
       return initialState;
+    case 'ENT_DETAILS':
+      return Object.assign({}, state, payload);
     default:
       return state;
   }

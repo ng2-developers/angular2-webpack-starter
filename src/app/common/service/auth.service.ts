@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { User } from '../models/user.model';
+import { User, EnterpriseInfo} from '../models/user.model';
 
 
 
@@ -59,6 +59,10 @@ export class AuthService implements OnInit {
 
        this.store.dispatch({ type: 'INIT_USER', payload: { id: 0, email: ''} });
 
+    }
+
+    public addUserInfo(entInfo: EnterpriseInfo) {
+        this.store.dispatch({ type: 'ENT_DETAILS', payload: entInfo });
     }
 
     public check() {
