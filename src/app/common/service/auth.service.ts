@@ -26,7 +26,7 @@ export class AuthService implements OnInit {
     constructor(
         private http: Http,public store: Store<AppStore>
     ) {
-       this.user = store.select('user');
+       this.user = <Observable<User>> store.select('user');
     }
 
     ngOnInit() {
