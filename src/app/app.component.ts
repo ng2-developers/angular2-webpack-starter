@@ -4,7 +4,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { AppState } from './app.service';
-//declare var $: JQueryStatic;
+// declare var $: JQueryStatic;
 
 /*
  * App Component
@@ -19,10 +19,10 @@ import { AppState } from './app.service';
   templateUrl: './app.template.html'
 })
 export class App {
-  
+
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
-  
+
 
   constructor(
     public appState: AppState) {

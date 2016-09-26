@@ -22,7 +22,7 @@ export class CtlHomeComponent {
   }
 
   login() {
-    this.authService.login('tsukhu@hcl.com','xxx');
+    this.authService.login('tsukhu@hcl.com', 'xxx');
   }
 
   logout() {
