@@ -30,7 +30,6 @@ import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { userReducer } from './common/reducers/user.store';
 import { productsReducer } from './common/reducers/products.store';
 
-import { CheckmarkPipe } from './common/pipes/checkmark.pipe';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -55,8 +54,7 @@ type StoreType = {
     Home,
     NoContent,
     XLarge,
-    CtlHomeComponent,
-    CheckmarkPipe
+    CtlHomeComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
