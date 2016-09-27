@@ -11,7 +11,7 @@ import { AuthService } from '../common/service/auth.service';
   templateUrl: './navbar.template.html'
 })
 export class NavBarComponent {
-   ctlLogo = 'assets/img/logo-centurylink.png';
+   ctlLogo = 'assets/img/centurylink-logo-white-text.png';
 
    user: Observable<User>;
 
