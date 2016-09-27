@@ -5,6 +5,8 @@ import { NavBarComponent } from './navbar.component';
 import { FooterComponent } from './footer.component';
 
 import { AuthService } from './service/auth.service';
+import { ProductsService } from './service/products.service';
+
 
 @NgModule({
     imports: [ FormsModule,
@@ -13,6 +15,7 @@ import { AuthService } from './service/auth.service';
                 FooterComponent ],
     declarations: [ NavBarComponent ,
                     FooterComponent ],
-    providers: [AuthService],
+    providers: [ AuthService,
+                 ProductsService ],
 })
 export class CtlCommonModule { }

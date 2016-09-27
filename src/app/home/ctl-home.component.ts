@@ -7,6 +7,7 @@ import { User, EnterpriseInfo } from '../common/models/user.model';
 import { AuthService } from '../common/service/auth.service';
 
 
+
 @Component({
   selector: 'ctl-home',
   templateUrl: './ctl-home.template.html'
@@ -18,7 +19,7 @@ export class CtlHomeComponent {
               public store: Store<AppStore>) {
       this.user = authService.user;
       authService.init();
-      this.user.subscribe(v => console.log(v));
+
   }
 
   addUserInfo() {
