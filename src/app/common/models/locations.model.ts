@@ -1,4 +1,4 @@
-export class Location {
+export interface Location {
     unitNo: string;
     buildingNo: string;
     streetName: string; 

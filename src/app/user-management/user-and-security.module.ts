@@ -13,4 +13,4 @@ import { SignUpComponent } from './sign-up.component';
                     LoginComponent ],
     providers: [],
 })
-export class UserProfileModule { }
+export class UserAndSecurityModule { }

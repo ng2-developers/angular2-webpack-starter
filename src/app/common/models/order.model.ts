@@ -1,6 +1,6 @@
-import {ShoppingCart} from '../shopping-cart/shopping-cart';
+import {ShoppingCart} from './shopping-cart.model';
 
-export class Order {
+export interface Order {
     orderName: string;
     orderDate: string;
     orderValue: number;
