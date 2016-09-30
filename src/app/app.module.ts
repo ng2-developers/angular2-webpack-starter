@@ -29,7 +29,6 @@ import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { OrderModule } from './order/order.module';
 import { LocationsModule } from './locations/locations.module';
 import { PaymentModule } from './payment/payment.module';
-import { SharedModule } from './common/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
