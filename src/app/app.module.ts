@@ -25,7 +25,7 @@ import { CtlHomeComponent } from './home/ctl-home.component';
 import { CtlCommonModule }  from './common/common.module';
 import { ProductModule }    from './product/product.module';
 import { UserAndSecurityModule } from './user-management/user-and-security.module';
-import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { CartModule } from './shopping-cart/cart.module';
 import { OrderModule } from './order/order.module';
 import { LocationsModule } from './locations/locations.module';
 import { PaymentModule } from './payment/payment.module';
@@ -68,6 +68,12 @@ type StoreType = {
     HttpModule,
     CtlCommonModule,
     ProductModule,
+    UserAndSecurityModule,
+    CartModule,
+    OrderModule,
+    LocationsModule,
+    PaymentModule,
+    SharedModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore({ user: userReducer , products: productsReducer}),
     StoreDevtoolsModule.instrumentStore({
