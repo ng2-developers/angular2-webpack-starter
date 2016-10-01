@@ -73,7 +73,6 @@ type StoreType = {
     OrderModule,
     LocationsModule,
     PaymentModule,
-    SharedModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore({ user: userReducer , products: productsReducer}),
     StoreDevtoolsModule.instrumentStore({

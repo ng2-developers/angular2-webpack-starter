@@ -43,7 +43,7 @@
     "server": "npm run server:dev",
     "serve":  "concurrently \"npm run json-server\" \"npm run server\"",
     "start:hmr": "npm run server:dev:hmr",
-    "start": "npm run server:dev --watch",
+    "start": "npm run server:dev",
     "test": "karma start",
     "tslint": "tslint",
     "typedoc": "typedoc",
