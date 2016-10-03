@@ -9,7 +9,7 @@ import { ProductsService } from '../common/service/products.service';
 @Component({
   selector: 'product-description',
   styleUrls: [ './product-desc.css' ],
-  templateUrl: './product-desc.template.html'
+  templateUrl: './product-desc.component.html'
 })
 export class ProductDescriptionComponent {
    products: Observable<Array<Product>>;

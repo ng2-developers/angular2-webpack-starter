@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'cart-detail',
-  templateUrl: './cart-detail.template.html'
+  templateUrl: './cart-detail.component.html'
 })
 export class CartDetailComponent {
 

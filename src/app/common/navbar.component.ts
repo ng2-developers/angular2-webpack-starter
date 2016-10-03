@@ -8,7 +8,7 @@ import { AuthService } from '../common/service/auth.service';
 
 @Component({
   selector: 'ctl-nav-bar',
-  templateUrl: './navbar.template.html'
+  templateUrl: './navbar.component.html'
 })
 export class NavBarComponent {
    ctlLogo = 'assets/img/centurylink-logo-white-text.png';

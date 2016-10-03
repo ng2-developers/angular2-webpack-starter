@@ -8,7 +8,7 @@ import { ProductsService } from '../common/service/products.service';
 
 @Component({
   selector: 'product-features',
-  templateUrl: './product-features.template.html'
+  templateUrl: './product-features.component.html'
 })
 export class ProductFeaturesComponent {
    products: Observable<Array<Product>>;

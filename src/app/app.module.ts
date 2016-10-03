@@ -22,7 +22,7 @@ import { NoContent } from './no-content';
 import { XLarge } from './home/x-large';
 
 import { CtlHomeComponent } from './home/ctl-home.component';
-import { CtlCommonModule }  from './common/common.module';
+import { CoreModule }  from './common/core.module';
 import { ProductModule }    from './product/product.module';
 import { UserAndSecurityModule } from './user-management/user-and-security.module';
 import { CartModule } from './shopping-cart/cart.module';
@@ -66,7 +66,7 @@ type StoreType = {
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    CtlCommonModule,
+    CoreModule,
     ProductModule,
     UserAndSecurityModule,
     CartModule,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'live-chat',
-  templateUrl: './live-chat.template.html'
+  templateUrl: './live-chat.component.html'
 })
 export class LiveChatComponent {
 

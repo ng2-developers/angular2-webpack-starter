@@ -16,7 +16,7 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.style.css'
   ],
-  templateUrl: './app.template.html'
+  templateUrl: './app.component.html'
 })
 export class App {
 

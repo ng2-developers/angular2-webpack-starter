@@ -10,7 +10,7 @@ import { AuthService } from '../common/service/auth.service';
 
 @Component({
   selector: 'ctl-home',
-  templateUrl: './ctl-home.template.html'
+  templateUrl: './ctl-home.component.html'
 })
 export class CtlHomeComponent {
    user: Observable<User>;

@@ -1,10 +1,11 @@
-import { NgModule }                     from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { FormsModule }                  from '@angular/forms';
 import { CommonModule }                 from '@angular/common';
 import { NavBarComponent }              from './navbar.component';
 import { FooterComponent }              from './footer.component';
 import { ContactUsComponent }           from './contact-us/contact-us.component';
 import { LiveChatComponent }            from './contact-us/live-chat.component';
+import { throwIfAlreadyLoaded }         from './module-import-guard';
 
 import { AuthService } from './service/auth.service';
 import { ProductsService } from './service/products.service';
@@ -25,4 +26,9 @@ import { ProductsService } from './service/products.service';
     providers: [ AuthService,
                  ProductsService ],
 })
-export class CtlCommonModule { }
+
+export class CoreModule {
+    constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+        throwIfAlreadyLoaded(parentModule, 'CoreModule');
+    }
+}
