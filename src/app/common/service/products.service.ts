@@ -22,11 +22,11 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class ProductsService implements OnInit {
-    products: Observable<Array<Product>>;
+    product: Observable<Product>;
     constructor(
         private http: Http,public store: Store<AppStore>
     ) {
-       this.products = <Observable<Array<Product>>> store.select('products');
+       this.product = <Observable<Product>> store.select('products');
     }
 
     ngOnInit() {
@@ -34,7 +34,7 @@ export class ProductsService implements OnInit {
     }
 
  
-    loadProducts() {
+    loadProduct() {
         this.http.get(BASE_URL+'/1')
         .map(res => res.json())
         .map(payload => ({ type: 'ADD_PRODUCTS', payload }))

@@ -1,3 +1,14 @@
-<product-description></product-description>
-<product-features></product-features>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <ul role="navigation" class="nav nav-tabs">
+                <li class="active"><a href="#link-desc">Description</a></li>
+                <li><a href="#link-feat">Features</a></li>
+                <li><a href="#link-pric">Pricing</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<product-description [item]="product | async" [title]="title"></product-description>
+<product-features [variants]="(product | async)?.variants"></product-features>
 <product-pricing></product-pricing>

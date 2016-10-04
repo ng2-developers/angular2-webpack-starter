@@ -12,12 +12,14 @@ import { ProductsService } from '../common/service/products.service';
   templateUrl: './product-details.component.html'
 })
 export class ProductDetailsComponent {
-   products: Observable<Array<Product>>;
+   product: Observable<Product>;
+   title: String;
 
    constructor(public prodService: ProductsService,
               public store: Store<AppStore>) {
-      this.products = prodService.products;
-      prodService.loadProducts();
+      this.product = prodService.product;
+      prodService.loadProduct();
+      this.title = 'Description';
      // this.products.subscribe(v => console.log(v));
   }
 

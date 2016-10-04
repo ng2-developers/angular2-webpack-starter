@@ -2,7 +2,7 @@ export interface Product {
     id: number;
     urnid: string;
     name: string;
-    discription: string;
+    description: string;
     product_type: string;
     created_at: string;
     updated_at: string;
@@ -22,12 +22,11 @@ export interface Variant {
     service_vendor: string;
     service_transport: string;
     security_pkg: string;
-    cpe: string;
+    standard_cpe: string;
     ha_service_plan: string;
     ha_service_vendor: string;
     ha_service_transport: string;
     ha_security_pkg: string;
     ha_cpe: string;
     tier1_support: string;
-
 }

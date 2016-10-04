@@ -1,10 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
-
-import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
-import { ProductsService } from '../common/service/products.service';
+
 
 @Component({
   selector: 'product-description',
@@ -12,13 +9,12 @@ import { ProductsService } from '../common/service/products.service';
   templateUrl: './product-desc.component.html'
 })
 export class ProductDescriptionComponent {
-   products: Observable<Array<Product>>;
+   product: Product;
+   @Input() title: String;
 
-   constructor(public prodService: ProductsService,
-              public store: Store<AppStore>) {
-      this.products = prodService.products;
-      prodService.loadProducts();
-     // this.products.subscribe(v => console.log(v));
-  }
+   @Input() set item(value: Product) {
+     this.product = Object.assign({}, value);
+   }
+
 
 }

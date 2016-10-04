@@ -6,40 +6,25 @@
         <thead>
           <tr>
             <th>Features</th>
-            <th>SD-WAN BASIC</th>
-            <th>SD-WAN BASIC HA</th>
-            <th>SD-WAN PREMIUM</th>
-            <th>SD-WAN PREMIUM HA</th>
+            <th *ngFor="let variant of variants">{{variant.name}}</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Standard CPE</td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
+            <td *ngFor="let variant of variants"><svg *ngIf="variant.standard_cpe=='1'" class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
           </tr>
           <tr>
             <td>High Availability</td>
-            <td></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
+            <td *ngFor="let variant of variants"><svg *ngIf="variant.ha_cpe=='1'" class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
           </tr>
           <tr>
             <td>Security Package</td>
-            <td></td>
-            <td></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
+           <td *ngFor="let variant of variants"><svg *ngIf="variant.security_pkg=='1'" class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
           </tr>
           <tr>
             <td>Tier 1 Support</td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
-            <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>
+           <td *ngFor="let variant of variants"><svg *ngIf="variant.tier1_support=='1'" class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-check' /></svg></td>            
           </tr>
         </tbody>
       </table>
