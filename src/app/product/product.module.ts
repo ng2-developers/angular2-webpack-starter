@@ -6,7 +6,9 @@ import { ProductPricingComponent }      from './product-pricing.component';
 import { CheckmarkPipe }                from '../common/pipes/checkmark.pipe';
 import { ProductTermSelectionComponent } from './product-term-selection.component';
 import { ProductFeaturesComponent }     from './product-features.component';
-import { ProductDetailsComponent }     from './product-details.component';
+import { ProductDetailsComponent }      from './product-details.component';
+import { SpinnerComponent }             from '../common/spinner.component';
+import { AlertComponent }               from '../common/alert.component';
 
 @NgModule({
     imports: [ FormsModule,
@@ -22,7 +24,9 @@ import { ProductDetailsComponent }     from './product-details.component';
                     ProductTermSelectionComponent,
                     CheckmarkPipe,
                     ProductFeaturesComponent,
-                    ProductDetailsComponent ],
+                    ProductDetailsComponent,
+                    SpinnerComponent,
+                    AlertComponent ],
     providers: [],
 })
 export class ProductModule { }

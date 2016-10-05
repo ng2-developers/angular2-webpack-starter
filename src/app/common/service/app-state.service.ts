@@ -11,6 +11,6 @@ import { User } from '../models/user.model';
 @Injectable()
 export class AppStateService implements OnInit {
     ngOnInit() {
-       
+
     }
 }

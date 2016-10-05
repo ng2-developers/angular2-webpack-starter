@@ -24,21 +24,33 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 export class ProductsService implements OnInit {
     product: Observable<Product>;
     constructor(
-        private http: Http,public store: Store<AppStore>
+        private http: Http, public store: Store<AppStore>
     ) {
-       this.product = <Observable<Product>> store.select('products');
+        this.product = <Observable<Product>>store.select('products');
     }
 
     ngOnInit() {
-       
+
     }
 
- 
-    loadProduct() {
-        this.http.get(BASE_URL+'/1')
-        .map(res => res.json())
-        .map(payload => ({ type: 'ADD_PRODUCTS', payload }))
-        .subscribe(action => this.store.dispatch(action));
+    loadProduct(): Observable<Product> {
+        return this.http.get(BASE_URL + '/1')
+            .map(res => res.json())
+            .catch(this.handleError);
+//            .map(payload => ({ type: 'ADD_PRODUCTS', payload }))
+  //          .catch(this.handleError);
+         //   .subscribe(action => this.store.dispatch(action));
+    }
+
+    // this could also be a private method of the component class
+    private handleError(error: any) {
+        // log error
+        // could be something more sofisticated
+        let errMsg = (error.message) ? error.message :
+            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        
+        // throw an application level error
+        return Observable.throw(errMsg);
     }
 
 }

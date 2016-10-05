@@ -18,7 +18,7 @@ import { ProductsService } from './service/products.service';
     exports: [  ContactUsComponent,
                 LiveChatComponent,
                 FooterComponent,
-                NavBarComponent ],
+                NavBarComponent],
     declarations: [ ContactUsComponent,
                     LiveChatComponent,
                     FooterComponent,
