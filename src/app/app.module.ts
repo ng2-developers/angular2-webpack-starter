@@ -35,6 +35,9 @@ import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { userReducer } from './common/reducers/user.store';
 import { productsReducer } from './common/reducers/products.store';
 
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from './effects/user-effects.component';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -81,7 +84,8 @@ type StoreType = {
         position: 'right'
       })
     }),
-    StoreLogMonitorModule
+    StoreLogMonitorModule,
+    EffectsModule.run(UserEffects)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
