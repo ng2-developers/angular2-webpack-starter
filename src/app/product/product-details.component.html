@@ -1,4 +1,5 @@
 <spinner [loading]="loading"></spinner>
+<alert-block *ngIf="!loading && error==true" [message]="errorAlert"></alert-block>
 <div *ngIf="!loading && error==false">
     <div class="container">
         <div class="row">
@@ -15,4 +16,3 @@
     <product-features [variants]="(product | async)?.variants"></product-features>
     <product-pricing></product-pricing>
 </div>
-<alert-block *ngIf="error==true" [message]="errorAlert">
