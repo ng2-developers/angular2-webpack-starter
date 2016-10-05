@@ -18,13 +18,15 @@ export class ProductDetailsComponent {
   product: Observable<Product>;
   title: String;
   loading: boolean;
+  error: boolean;
   errorAlert: Alert;
 
   constructor(public prodService: ProductsService,
     public store: Store<AppStore>) {
     this.product = prodService.product;
-    this.errorAlert = undefined;
+    this.errorAlert = null;
     this.loading = false;
+    this.error = false;
     this.loadProduct();
     this.title = 'Description';
     // this.products.subscribe(v => console.log(v));
@@ -32,7 +34,8 @@ export class ProductDetailsComponent {
 
   private loadProduct() {
     this.loading = true;
-    this.errorAlert = undefined;
+    this.error = false;
+    this.errorAlert = null;
     this.prodService.loadProduct()
       .map(payload => ({ type: 'ADD_PRODUCTS', payload }))
       .subscribe(
@@ -47,6 +50,7 @@ export class ProductDetailsComponent {
           message: <any>error
         };
         this.loading = false;
+        this.error = true;
       },
       () => this.loading = false);
 
