@@ -5,7 +5,7 @@ import { Product } from '../common/models/product.model';
 
 @Component({
   selector: 'product-description',
-  styleUrls: [ './product-desc.css' ],
+  styleUrls: [ './product-desc.component.css' ],
   templateUrl: './product-desc.component.html'
 })
 export class ProductDescriptionComponent {
