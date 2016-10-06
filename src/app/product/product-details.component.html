@@ -14,5 +14,5 @@
     </div>
     <product-description [item]="product | async" [title]="title"></product-description>
     <product-features [variants]="(product | async)?.variants"></product-features>
-    <product-pricing></product-pricing>
+    <product-pricing [prices]="prices | async"></product-pricing>
 </div>
