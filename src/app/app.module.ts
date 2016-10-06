@@ -31,9 +31,9 @@ import { PaymentModule } from './payment/payment.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
-import { userReducer } from './common/reducers/user.store';
-import { productsReducer } from './common/reducers/products.store';
-import { pricesReducer } from './common/reducers/prices.store';
+import { userReducer } from './common/reducers/user.reducer';
+import { productsReducer } from './common/reducers/products.reducer';
+import { pricesReducer } from './common/reducers/prices.reducer';
 
 
 import { EffectsModule } from '@ngrx/effects';
