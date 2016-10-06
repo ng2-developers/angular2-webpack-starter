@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { Pricing } from '../models/pricing.model';
+import { Pricing, PriceVariant } from '../models/pricing.model';
 
 
 
@@ -22,20 +22,24 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 @Injectable()
 export class PricingService implements OnInit {
-    pricing: Observable<Pricing>;
+    pricing: Observable<Array<PriceVariant>>;
     constructor(
         private http: Http, public store: Store<AppStore>
     ) {
-        this.pricing = <Observable<Pricing>>store.select('prices');
+        this.pricing = <Observable<Array<PriceVariant>>>store.select('prices');
     }
 
     ngOnInit() {
 
     }
 
-    loadPrices(): Observable<Pricing> {
+    loadPrices(term: string): Observable<Array<PriceVariant>> {
         return this.http.get(BASE_URL)
             .map(res => res.json())
+            .map(res => res.variants)
+            .map((res: PriceVariant[]) => {
+               return res.filter(x => x.term==term);
+            })
             .catch(this.handleError);
     }
 

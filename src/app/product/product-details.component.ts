@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
-import { Pricing } from '../common/models/pricing.model';
+import { PriceVariant } from '../common/models/pricing.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
 import { PricingService } from '../common/service/pricing.service';
@@ -18,7 +18,7 @@ import { PricingService } from '../common/service/pricing.service';
 })
 export class ProductDetailsComponent {
   product: Observable<Product>;
-  prices: Observable<Pricing>;
+  prices: Observable<Array<PriceVariant>>;
   title: String;
   loading: boolean;
   error: boolean;
@@ -66,7 +66,11 @@ export class ProductDetailsComponent {
     this.loading = true;
     this.error = false;
     this.errorAlert = null;
-    this.pricingService.loadPrices()
+    this.pricingService.loadPrices('12')
+      .map( res => {
+              //    console.log(res);
+                  return res;
+                })
       .map(payload => ({ type: 'ADD_PRICES', payload }))
       .subscribe(
       action => {
