@@ -1,23 +1,24 @@
 import { ActionReducer, Action } from '@ngrx/store';
-import { User } from '../models/user.model.ts';
+import { User } from '../models/user.model';
 
 const initialState: User = {
     id: 0,
     email: ''
 };
 
-export const userReducer = (state: any = [], {type, payload}) => {
-  switch (type) {
+export const userReducer: ActionReducer<User>
+              = (state: any = [], action: Action) => {
+  switch (action.type) {
     case 'CREATE_USER':
-      return payload;
+      return action.payload;
     case 'UPDATE_USER':
-      return payload;
+      return action.payload;
     case 'DELETE_USER':
       return initialState;
     case 'INIT_USER':
       return initialState;
     case 'ENT_DETAILS':
-      return Object.assign({}, state, payload);
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
