@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Store } from '@ngrx/store';
+import { Store, Action } from '@ngrx/store';
 
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
@@ -8,6 +8,7 @@ import { PriceVariant } from '../common/models/pricing.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
 import { PricingService } from '../common/service/pricing.service';
+
 
 
 
@@ -33,7 +34,7 @@ export class ProductDetailsComponent {
     this.loading = false;
     this.error = false;
     this.loadProduct();
-    this.loadPricing();
+ //   this.loadPricing();
     this.title = 'Description';
     // this.products.subscribe(v => console.log(v));
   }
@@ -47,6 +48,7 @@ export class ProductDetailsComponent {
       .subscribe(
       action => {
         this.store.dispatch(action);
+        this.store.dispatch( <Action> { type: 'LOAD_PRICES' });
         this.loading = false;
       },
       error => {
