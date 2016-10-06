@@ -33,6 +33,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { userReducer } from './common/reducers/user.store';
 import { productsReducer } from './common/reducers/products.store';
+import { pricesReducer } from './common/reducers/prices.store';
+
 
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user-effects.component';
@@ -76,7 +78,9 @@ type StoreType = {
     LocationsModule,
     PaymentModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
-    StoreModule.provideStore({ user: userReducer , products: productsReducer}),
+    StoreModule.provideStore({  user: userReducer ,
+                                products: productsReducer ,
+                                prices: pricesReducer }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
         visible: false,

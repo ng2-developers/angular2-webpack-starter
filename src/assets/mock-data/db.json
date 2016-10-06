@@ -196,6 +196,7 @@
         "name": "SD-WAN BASIC",
         "sku": "SDWANBASIC",
         "price": "200",
+        "term":"12",
         "service_transport": "customer",
         "currency": "USD"
       },
@@ -205,6 +206,7 @@
         "name": "SD-WAN BASIC",
         "sku": "SDWANBASIC",
         "price": "175",
+        "term":"12",
         "service_transport": "own",
         "currency": "USD"
       },
@@ -214,6 +216,7 @@
         "name": "SD-WAN BASIC HA",
         "sku": "SDWANBASICHA",
         "price": "250",
+        "term":"12",
         "service_transport": "customer",
         "currency": "USD"
       },
@@ -223,6 +226,7 @@
         "name": "SD-WAN BASIC HA",
         "sku": "SDWANBASICHA",
         "price": "225",
+        "term":"12",
         "service_transport": "own",
         "currency": "USD"
       },
@@ -232,6 +236,7 @@
         "name": "SD-WAN PREMIUM",
         "sku": "SDWANPREMIUM",
         "price": "300",
+        "term":"12",
         "service_transport": "customer",
         "currency": "USD"
       },
@@ -241,6 +246,7 @@
         "name": "SD-WAN PREMIUM",
         "sku": "SDWANPREMIUM",
         "price": "275",
+        "term":"12",
         "service_transport": "own",
         "currency": "USD"
       },
@@ -250,6 +256,7 @@
         "name": "SD-WAN PREMIUM HA",
         "sku": "SDWANPREMIUMHA",
         "price": "350",
+        "term":"12",
         "service_transport": "customer",
         "currency": "USD"
       },
@@ -259,9 +266,170 @@
         "name": "SD-WAN PREMIUM HA",
         "sku": "SDWANPREMIUMHA",
         "price": "325",
+        "term":"12",
         "service_transport": "own",
         "currency": "USD"
-      }
+      },
+      {
+        "id": "08911238777814",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC",
+        "sku": "SDWANBASIC",
+        "price": "300",
+        "term":"24",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777814",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC",
+        "sku": "SDWANBASIC",
+        "price": "275",
+        "term":"24",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777813",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC HA",
+        "sku": "SDWANBASICHA",
+        "price": "350",
+        "term":"24",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777813",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC HA",
+        "sku": "SDWANBASICHA",
+        "price": "325",
+        "term":"24",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777812",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM",
+        "sku": "SDWANPREMIUM",
+        "price": "400",
+        "term":"24",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777812",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM",
+        "sku": "SDWANPREMIUM",
+        "price": "375",
+        "term":"24",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777811",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM HA",
+        "sku": "SDWANPREMIUMHA",
+        "price": "450",
+        "term":"24",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777811",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM HA",
+        "sku": "SDWANPREMIUMHA",
+        "price": "425",
+        "term":"24",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+     {
+        "id": "08911238777814",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC",
+        "sku": "SDWANBASIC",
+        "price": "400",
+        "term":"36",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777814",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC",
+        "sku": "SDWANBASIC",
+        "price": "375",
+        "term":"36",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777813",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC HA",
+        "sku": "SDWANBASICHA",
+        "price": "450",
+        "term":"36",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777813",
+        "product_id": 223322117656312,
+        "name": "SD-WAN BASIC HA",
+        "sku": "SDWANBASICHA",
+        "price": "425",
+        "term":"36",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777812",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM",
+        "sku": "SDWANPREMIUM",
+        "price": "500",
+        "term":"36",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777812",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM",
+        "sku": "SDWANPREMIUM",
+        "price": "475",
+        "term":"36",
+        "service_transport": "own",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777811",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM HA",
+        "sku": "SDWANPREMIUMHA",
+        "price": "550",
+        "term":"36",
+        "service_transport": "customer",
+        "currency": "USD"
+      },
+      {
+        "id": "08911238777811",
+        "product_id": 223322117656312,
+        "name": "SD-WAN PREMIUM HA",
+        "sku": "SDWANPREMIUMHA",
+        "price": "525",
+        "term":"36",
+        "service_transport": "own",
+        "currency": "USD"
+      }              
     ]
   }
 }

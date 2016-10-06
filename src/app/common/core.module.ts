@@ -9,6 +9,7 @@ import { throwIfAlreadyLoaded }         from './module-import-guard';
 
 import { AuthService } from './service/auth.service';
 import { ProductsService } from './service/products.service';
+import { PricingService } from './service/pricing.service';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { ProductsService } from './service/products.service';
                     FooterComponent,
                     NavBarComponent ],
     providers: [ AuthService,
-                 ProductsService ],
+                 ProductsService,
+                 PricingService ],
 })
 
 export class CoreModule {

@@ -4,6 +4,7 @@ export interface Pricing {
     name: string;
     sku: string;
     price: string;
+    term: string;
     service_transport: string;
     currency: string;
 }
