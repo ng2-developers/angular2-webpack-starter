@@ -19,6 +19,8 @@ export const userReducer: ActionReducer<User>
       return initialState;
     case 'ENT_DETAILS':
       return Object.assign({}, state, action.payload);
+    case 'ADD_FINGERPRINT':
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }

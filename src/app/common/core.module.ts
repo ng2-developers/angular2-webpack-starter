@@ -8,8 +8,10 @@ import { LiveChatComponent }            from './contact-us/live-chat.component';
 import { throwIfAlreadyLoaded }         from './module-import-guard';
 
 import { AuthService } from './service/auth.service';
+import { FingerPrintService } from './service/fingerprint.service';
 import { ProductsService } from './service/products.service';
 import { PricingService } from './service/pricing.service';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { PricingService } from './service/pricing.service';
                     NavBarComponent ],
     providers: [ AuthService,
                  ProductsService,
-                 PricingService ],
+                 PricingService,
+                 FingerPrintService ],
 })
 
 export class CoreModule {
