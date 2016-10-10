@@ -25,6 +25,11 @@ export class ProductDetailsComponent {
   error: boolean;
   errorAlert: Alert;
 
+  public totalItems: number = 64;
+  public currentPage: number = 4;
+  public maxSize: number = 5;
+
+
   constructor(public prodService: ProductsService,
     public pricingService: PricingService,
     public store: Store<AppStore>) {
@@ -38,6 +43,15 @@ export class ProductDetailsComponent {
     this.title = 'Description';
     // this.products.subscribe(v => console.log(v));
   }
+
+  public setPage(pageNo: number): void {
+    this.currentPage = pageNo;
+  };
+
+  public pageChanged(event: any): void {
+    console.log('Page changed to: ' + event.page);
+    console.log('Number items per page: ' + event.itemsPerPage);
+  };
 
   private loadProduct() {
     this.loading = true;

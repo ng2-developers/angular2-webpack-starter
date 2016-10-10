@@ -9,10 +9,13 @@ import { ProductFeaturesComponent }     from './product-features.component';
 import { ProductDetailsComponent }      from './product-details.component';
 import { SpinnerComponent }             from '../common/spinner.component';
 import { AlertComponent }               from '../common/alert.component';
+import { PaginationModule }             from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
     imports: [ FormsModule,
-    CommonModule],
+    CommonModule ,
+    PaginationModule
+    ],
     exports: [ ProductDescriptionComponent,
                 ProductPricingComponent,
                 ProductTermSelectionComponent,
