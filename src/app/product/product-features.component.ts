@@ -11,5 +11,6 @@ import { ProductsService } from '../common/service/products.service';
   templateUrl: './product-features.component.html'
 })
 export class ProductFeaturesComponent {
+   options = ['Standard CPE', 'High Availability', 'Security Package', 'Tier 1 Support'];
    @Input() variants: Variant[];
 }

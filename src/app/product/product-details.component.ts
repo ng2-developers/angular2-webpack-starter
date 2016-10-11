@@ -25,6 +25,7 @@ export class ProductDetailsComponent {
   error: boolean;
   errorAlert: Alert;
 
+
   public totalItems: number = 64;
   public currentPage: number = 4;
   public maxSize: number = 5;
