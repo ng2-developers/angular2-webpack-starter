@@ -28,7 +28,7 @@ export interface LineItem {
     productId: string;
     productTemplateName: string;
     productTemplateId: string;
-    productDetails?: SDWANLocationInfo[];
+    locations?: SDWANLocationInfo[];
 }
 
 

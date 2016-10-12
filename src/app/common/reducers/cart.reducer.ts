@@ -6,7 +6,7 @@ export const cartReducer: ActionReducer<ShoppingCart>
     switch (action.type) {
       /*   case 'ADD_ITEMS':
            return Object.assign({}, state, {
-             productDetails: [...state.productDetails, action.payload]
+             locations: [...state.locations, action.payload]
            });*/
       case 'CREATE_ITEM':
         if (state.lineItems === undefined) {
@@ -30,25 +30,33 @@ export const cartReducer: ActionReducer<ShoppingCart>
                  item.lineItems, [...item.lineItems, action.payload]) : item;
              });*/
       case 'CREATE_LOCATION':
-        if (state.lineItems === undefined) {
-          state = Object.assign({}, state.lineItems, action.payload.location);
-        }
-        state.lineItems.map(lineItem => {
+  /*      if (state.lineItems === undefined) {
+          return Object.assign({}, state.lineItems, action.payload.location);
+        }*/
+        return Object.assign({}, state, {
+          lineItems: (state.lineItems !== undefined) ? state.lineItems.map( lineItem => {
+              if (lineItem.productTemplateId === action.payload.productTemplateId) {
+                return Object.assign({}, lineItem , {
+                  locations: [...lineItem.locations, action.payload.location]}
+                  );
+              }
+              return lineItem;
+            }) : Object.assign({}, state.lineItems, action.payload.location)
+        });
+        /*
+        return state.lineItems.map(lineItem => {
           if (lineItem.productTemplateId === action.payload.productTemplateId) {
             console.log('Matched' + lineItem.productTemplateId);
             console.log(state.lineItems);
             console.log(action.payload);
-            state = Object.assign({}, state, {
-              lineItems: [...state.lineItems, Object.assign({}, lineItem, {
-                productDetails: action.payload.location
-              }
-              )]
+            let lineItems = Object.assign({}, lineItem, {
+                  locations: [...lineItem.locations, action.payload.location]}
+                  );
+            return Object.assign({}, state, {
+              lineItems: lineItems });
             }
-            );
           }
-        });
-        console.log(state);
-        return state;
+        );*/
       /*     case 'UPDATE_LOCATION':
              return state.lineItems.map(item => {
                item.lineItems.map(location => {

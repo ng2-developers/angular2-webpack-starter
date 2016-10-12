@@ -106,7 +106,7 @@ export class ProductDetailsComponent {
       productId: 'SDWAN',
       productTemplateName: 'SDWAN BASIC',
       productTemplateId: 'SDWANBASIC',
-      productDetails: location
+      locations: location
     };
 
     cart = {
