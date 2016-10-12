@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { ShoppingCart, LineItem, SDWANLocationInfo } from '../models/cart.model';
+import { ShoppingCart, LineItem, SDWANLocationInfo, LocationInfo } from '../models/cart.model';
 
 
 
