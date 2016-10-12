@@ -1,0 +1,16 @@
+    html.cyclops .nav-tabs-prod-det {
+      margin-top:52px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    html.cyclops .navbar-fixed-top {
+      position: fixed;
+      width: 100%;
+      z-index: 1;
+    }
+    html.cyclops .card{
+      margin-top: 150px;
+    }
+    html.cyclops .navbar-default{
+      background: #fff;
+    }

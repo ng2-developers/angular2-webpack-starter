@@ -35,6 +35,7 @@ export class LocationsComponent {
   shippingCity = new FormControl("");
   shippingState = new FormControl("");
   shippingZipCode = new FormControl("");
+  checkAddress = new FormControl("");
 
 
   constructor(fb: FormBuilder) {

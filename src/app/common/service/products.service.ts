@@ -34,7 +34,7 @@ export class ProductsService implements OnInit {
     }
 
     loadProduct(): Observable<Product> {
-        return this.http.get(BASE_URL + '/1')
+        return this.http.get(BASE_URL + '1')
             .map(res => res.json())
             .catch(this.handleError);
 //            .map(payload => ({ type: 'ADD_PRODUCTS', payload }))

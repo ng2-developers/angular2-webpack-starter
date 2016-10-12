@@ -2,9 +2,14 @@ export interface Pricing {
     id: number;
     urnid: string;
     name: string;
-    variants: PriceVariant[];
+    variants: PriceTerm[];
 }
 
+export interface PriceTerm {
+    term_12m: PriceVariant[];
+    term_24m: PriceVariant[];
+    term_36m: PriceVariant[];
+}
 
 export interface PriceVariant {
     id: number;
@@ -12,7 +17,7 @@ export interface PriceVariant {
     name: string;
     sku: string;
     price: string;
-    term: string;
+    //term: string;
     service_transport: string;
     currency: string;
 }
