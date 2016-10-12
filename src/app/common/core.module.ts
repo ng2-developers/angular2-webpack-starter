@@ -11,6 +11,7 @@ import { AuthService } from './service/auth.service';
 import { FingerPrintService } from './service/fingerprint.service';
 import { ProductsService } from './service/products.service';
 import { PricingService } from './service/pricing.service';
+import { CartService } from './service/cart.service';
 
 
 
@@ -29,7 +30,8 @@ import { PricingService } from './service/pricing.service';
     providers: [ AuthService,
                  ProductsService,
                  PricingService,
-                 FingerPrintService ],
+                 FingerPrintService,
+                 CartService ],
 })
 
 export class CoreModule {

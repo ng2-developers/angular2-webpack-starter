@@ -34,6 +34,7 @@ import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
 import { userReducer } from './common/reducers/user.reducer';
 import { productsReducer } from './common/reducers/products.reducer';
 import { pricesReducer } from './common/reducers/prices.reducer';
+import { cartReducer } from './common/reducers/cart.reducer';
 
 
 import { EffectsModule } from '@ngrx/effects';
@@ -80,7 +81,8 @@ type StoreType = {
     RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore({  user: userReducer ,
                                 products: productsReducer ,
-                                prices: pricesReducer }),
+                                prices: pricesReducer,
+                                cart: cartReducer }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
         visible: false,

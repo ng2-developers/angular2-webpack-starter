@@ -5,9 +5,16 @@ import { Store, Action } from '@ngrx/store';
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
 import { PriceVariant } from '../common/models/pricing.model';
+import { ShoppingCart ,
+          LineItem,
+          SDWANLocationInfo,
+          ContactInfo,
+          EnterpriseAddress,
+          LocationUpdateInfo } from '../common/models/cart.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
 import { PricingService } from '../common/service/pricing.service';
+import { CartService } from '../common/service/cart.service';
 
 
 
@@ -20,6 +27,7 @@ import { PricingService } from '../common/service/pricing.service';
 export class ProductDetailsComponent {
   product: Observable<Product>;
   prices: Observable<Array<PriceVariant>>;
+  cart: Observable<ShoppingCart>;
   title: String;
   loading: boolean;
   error: boolean;
@@ -33,6 +41,7 @@ export class ProductDetailsComponent {
 
   constructor(public prodService: ProductsService,
     public pricingService: PricingService,
+    public cartService: CartService,
     public store: Store<AppStore>) {
     this.product = prodService.product;
     this.prices = pricingService.pricing;
@@ -42,6 +51,9 @@ export class ProductDetailsComponent {
     this.loadProduct();
  //   this.loadPricing();
     this.title = 'Description';
+    this.addCartItem();
+    this.addLocation();
+  //  this.addLocation2();
     // this.products.subscribe(v => console.log(v));
   }
 
@@ -53,6 +65,145 @@ export class ProductDetailsComponent {
     console.log('Page changed to: ' + event.page);
     console.log('Number items per page: ' + event.itemsPerPage);
   };
+
+  private addCartItem() {
+    let cart: ShoppingCart;
+    let location: SDWANLocationInfo[];
+    let serviceContact: ContactInfo;
+    let serviceAddress: EnterpriseAddress;
+    let shippingAddress: EnterpriseAddress;
+    let lineItem: LineItem;
+
+    serviceAddress = {
+        locationName: 'location 1',
+        addressLine: 'address line 1',
+        street: 'street 1',
+        city: 'Denver',
+        country: 'US',
+        state: 'CO',
+        zipCode: '71100'
+    };
+
+    shippingAddress = serviceAddress;
+
+    serviceContact = {
+        email: 'tsukhu@hcl.com',
+        firstName: 'Tarun',
+        lastName: 'Sukhu',
+        phoneNumber: '111122223333'
+    };
+
+    location = [{
+      id: 1,
+      serviceContact: serviceContact,
+      serviceAddress: serviceAddress,
+      shippingAddress: shippingAddress
+    }];
+
+    lineItem = {
+      id: 1,
+      productName: 'SDWAN',
+      productId: 'SDWAN',
+      productTemplateName: 'SDWAN BASIC',
+      productTemplateId: 'SDWANBASIC',
+      productDetails: location
+    };
+
+    cart = {
+      lineItems: [lineItem]
+    };
+    this.cartService.createItem(cart);
+
+  }
+
+   private addLocation() {
+    let location: SDWANLocationInfo;
+    let serviceContact: ContactInfo;
+    let serviceAddress: EnterpriseAddress;
+    let shippingAddress: EnterpriseAddress;
+    let lineItem: LineItem;
+    let locationInfo: LocationUpdateInfo;
+
+    serviceAddress = {
+        locationName: 'location 2',
+        addressLine: 'address line 2',
+        street: 'street 2',
+        city: 'Highlands Ranch',
+        country: 'US',
+        state: 'CO',
+        zipCode: '71200'
+    };
+
+    shippingAddress = serviceAddress;
+
+    serviceContact = {
+        email: 'tsukhu@hcl.com',
+        firstName: 'Tarun',
+        lastName: 'Sukhu',
+        phoneNumber: '111122223333'
+    };
+
+    location = {
+      id: 2,
+      serviceContact: serviceContact,
+      serviceAddress: serviceAddress,
+      shippingAddress: shippingAddress
+    };
+
+    locationInfo = {
+      id: 1,
+      productTemplateId: 'SDWANBASIC',
+      location: location
+    };
+
+    this.cartService.addLocation(locationInfo);
+
+  }
+
+
+private addLocation2() {
+    let location: SDWANLocationInfo;
+    let serviceContact: ContactInfo;
+    let serviceAddress: EnterpriseAddress;
+    let shippingAddress: EnterpriseAddress;
+    let lineItem: LineItem;
+    let locationInfo: LocationUpdateInfo;
+
+    serviceAddress = {
+        locationName: 'location 2',
+        addressLine: 'address line 2',
+        street: 'street 2',
+        city: 'Highlands Ranch',
+        country: 'US',
+        state: 'CO',
+        zipCode: '71200'
+    };
+
+    shippingAddress = serviceAddress;
+
+    serviceContact = {
+        email: 'tsukhu@hcl.com',
+        firstName: 'Tarun',
+        lastName: 'Sukhu',
+        phoneNumber: '111122223333'
+    };
+
+    location = {
+      id: 2,
+      serviceContact: serviceContact,
+      serviceAddress: serviceAddress,
+      shippingAddress: shippingAddress
+    };
+
+    locationInfo = {
+      id: 1,
+      productTemplateId: 'SDWANBASICHA',
+      location: location
+    };
+
+    this.cartService.addLocation(locationInfo);
+
+  }
 
   private loadProduct() {
     this.loading = true;
