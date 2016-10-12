@@ -5,12 +5,14 @@ import { Store, Action } from '@ngrx/store';
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
 import { PriceVariant } from '../common/models/pricing.model';
-import { ShoppingCart ,
-          LineItem,
-          SDWANLocationInfo,
-          ContactInfo,
-          EnterpriseAddress,
-          LocationUpdateInfo } from '../common/models/cart.model';
+import {
+  ShoppingCart,
+  LineItem,
+  SDWANLocationInfo,
+  ContactInfo,
+  EnterpriseAddress,
+  LocationUpdateInfo
+} from '../common/models/cart.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
 import { PricingService } from '../common/service/pricing.service';
@@ -49,11 +51,11 @@ export class ProductDetailsComponent {
     this.loading = false;
     this.error = false;
     this.loadProduct();
- //   this.loadPricing();
+    //   this.loadPricing();
     this.title = 'Description';
     this.addCartItem();
     this.addLocation();
-  //  this.addLocation2();
+    this.addLocation2();
     // this.products.subscribe(v => console.log(v));
   }
 
@@ -75,22 +77,22 @@ export class ProductDetailsComponent {
     let lineItem: LineItem;
 
     serviceAddress = {
-        locationName: 'location 1',
-        addressLine: 'address line 1',
-        street: 'street 1',
-        city: 'Denver',
-        country: 'US',
-        state: 'CO',
-        zipCode: '71100'
+      locationName: 'location 1',
+      addressLine: 'address line 1',
+      street: 'street 1',
+      city: 'Denver',
+      country: 'US',
+      state: 'CO',
+      zipCode: '71100'
     };
 
     shippingAddress = serviceAddress;
 
     serviceContact = {
-        email: 'tsukhu@hcl.com',
-        firstName: 'Tarun',
-        lastName: 'Sukhu',
-        phoneNumber: '111122223333'
+      email: 'tsukhu@hcl.com',
+      firstName: 'Tarun',
+      lastName: 'Sukhu',
+      phoneNumber: '111122223333'
     };
 
     location = [{
@@ -116,7 +118,7 @@ export class ProductDetailsComponent {
 
   }
 
-   private addLocation() {
+  private addLocation() {
     let location: SDWANLocationInfo;
     let serviceContact: ContactInfo;
     let serviceAddress: EnterpriseAddress;
@@ -125,22 +127,22 @@ export class ProductDetailsComponent {
     let locationInfo: LocationUpdateInfo;
 
     serviceAddress = {
-        locationName: 'location 2',
-        addressLine: 'address line 2',
-        street: 'street 2',
-        city: 'Highlands Ranch',
-        country: 'US',
-        state: 'CO',
-        zipCode: '71200'
+      locationName: 'location 2',
+      addressLine: 'address line 2',
+      street: 'street 2',
+      city: 'Highlands Ranch',
+      country: 'US',
+      state: 'CO',
+      zipCode: '71200'
     };
 
     shippingAddress = serviceAddress;
 
     serviceContact = {
-        email: 'tsukhu@hcl.com',
-        firstName: 'Tarun',
-        lastName: 'Sukhu',
-        phoneNumber: '111122223333'
+      email: 'tsukhu@hcl.com',
+      firstName: 'Tarun',
+      lastName: 'Sukhu',
+      phoneNumber: '111122223333'
     };
 
     location = {
@@ -150,18 +152,22 @@ export class ProductDetailsComponent {
       shippingAddress: shippingAddress
     };
 
-    locationInfo = {
+    lineItem = {
       id: 1,
+      productName: 'SDWAN',
+      productId: 'SDWAN',
+      productTemplateName: 'SDWAN BASIC',
       productTemplateId: 'SDWANBASIC',
-      location: location
+      locations: [location]
     };
 
-    this.cartService.addLocation(locationInfo);
+
+    this.cartService.addLocation(lineItem);
 
   }
 
 
-private addLocation2() {
+  private addLocation2() {
     let location: SDWANLocationInfo;
     let serviceContact: ContactInfo;
     let serviceAddress: EnterpriseAddress;
@@ -170,22 +176,22 @@ private addLocation2() {
     let locationInfo: LocationUpdateInfo;
 
     serviceAddress = {
-        locationName: 'location 2',
-        addressLine: 'address line 2',
-        street: 'street 2',
-        city: 'Highlands Ranch',
-        country: 'US',
-        state: 'CO',
-        zipCode: '71200'
+      locationName: 'location 2',
+      addressLine: 'address line 2',
+      street: 'street 2',
+      city: 'Highlands Ranch',
+      country: 'US',
+      state: 'CO',
+      zipCode: '71200'
     };
 
     shippingAddress = serviceAddress;
 
     serviceContact = {
-        email: 'tsukhu@hcl.com',
-        firstName: 'Tarun',
-        lastName: 'Sukhu',
-        phoneNumber: '111122223333'
+      email: 'tsukhu@hcl.com',
+      firstName: 'Tarun',
+      lastName: 'Sukhu',
+      phoneNumber: '111122223333'
     };
 
     location = {
@@ -195,13 +201,15 @@ private addLocation2() {
       shippingAddress: shippingAddress
     };
 
-    locationInfo = {
-      id: 1,
+    lineItem = {
+      productName: 'SDWAN',
+      productId: 'SDWAN',
+      productTemplateName: 'SDWAN BASIC HA',
       productTemplateId: 'SDWANBASICHA',
-      location: location
+      locations: [location]
     };
 
-    this.cartService.addLocation(locationInfo);
+    this.cartService.addLocation(lineItem);
 
   }
 
@@ -214,7 +222,7 @@ private addLocation2() {
       .subscribe(
       action => {
         this.store.dispatch(action);
-        this.store.dispatch( <Action> { type: 'LOAD_PRICES' });
+        this.store.dispatch(<Action>{ type: 'LOAD_PRICES' });
         this.loading = false;
       },
       error => {
@@ -235,10 +243,10 @@ private addLocation2() {
     this.error = false;
     this.errorAlert = null;
     this.pricingService.loadPrices('12')
-      .map( res => {
-              //    console.log(res);
-                  return res;
-                })
+      .map(res => {
+        //    console.log(res);
+        return res;
+      })
       .map(payload => ({ type: 'ADD_PRICES', payload }))
       .subscribe(
       action => {

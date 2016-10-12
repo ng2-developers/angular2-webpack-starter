@@ -30,33 +30,46 @@ export const cartReducer: ActionReducer<ShoppingCart>
                  item.lineItems, [...item.lineItems, action.payload]) : item;
              });*/
       case 'CREATE_LOCATION':
-  /*      if (state.lineItems === undefined) {
-          return Object.assign({}, state.lineItems, action.payload.location);
-        }*/
-        return Object.assign({}, state, {
-          lineItems: (state.lineItems !== undefined) ? state.lineItems.map( lineItem => {
-              if (lineItem.productTemplateId === action.payload.productTemplateId) {
-                return Object.assign({}, lineItem , {
-                  locations: [...lineItem.locations, action.payload.location]}
-                  );
+        /*      if (state.lineItems === undefined) {
+                return Object.assign({}, state.lineItems, action.payload.location);
+              }*/
+        let add = true;
+        state = Object.assign({}, state, {
+          lineItems: (state.lineItems !== undefined) ? state.lineItems.map(lineItem => {
+            if (lineItem.productTemplateId === action.payload.productTemplateId) {
+              add = false;
+              return Object.assign({}, lineItem, {
+                locations: [...lineItem.locations, action.payload]
               }
-              return lineItem;
-            }) : Object.assign({}, state.lineItems, action.payload.location)
-        });
-        /*
-        return state.lineItems.map(lineItem => {
-          if (lineItem.productTemplateId === action.payload.productTemplateId) {
-            console.log('Matched' + lineItem.productTemplateId);
-            console.log(state.lineItems);
-            console.log(action.payload);
-            let lineItems = Object.assign({}, lineItem, {
-                  locations: [...lineItem.locations, action.payload.location]}
-                  );
-            return Object.assign({}, state, {
-              lineItems: lineItems });
+              );
             }
+            return lineItem;
+          }) : Object.assign({}, state.lineItems, action.payload)
+        });
+        if (add) {
+          if (state.lineItems === undefined) {
+            return Object.assign({}, state, { lineItems: action.payload });
           }
-        );*/
+          return Object.assign({}, state, {
+            lineItems: [...state.lineItems, action.payload]
+          });
+        }
+        return state;
+
+      /*
+      return state.lineItems.map(lineItem => {
+        if (lineItem.productTemplateId === action.payload.productTemplateId) {
+          console.log('Matched' + lineItem.productTemplateId);
+          console.log(state.lineItems);
+          console.log(action.payload);
+          let lineItems = Object.assign({}, lineItem, {
+                locations: [...lineItem.locations, action.payload.location]}
+                );
+          return Object.assign({}, state, {
+            lineItems: lineItems });
+          }
+        }
+      );*/
       /*     case 'UPDATE_LOCATION':
              return state.lineItems.map(item => {
                item.lineItems.map(location => {

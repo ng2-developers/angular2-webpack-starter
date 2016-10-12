@@ -39,10 +39,11 @@ export class CartService implements OnInit {
     }
 
     createItem(item: ShoppingCart) {
-        this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+/*        this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
             .map(res => res.json())
             .map(payload => ({ type: 'CREATE_ITEM', payload }))
-            .subscribe(action => this.store.dispatch(action));
+            .subscribe(action => this.store.dispatch(action));*/
+        this.store.dispatch({ type: 'CREATE_ITEM', payload: item });            
     }
 
     updateItem(item: LineItem) {
@@ -55,11 +56,12 @@ export class CartService implements OnInit {
             .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: item }));
     }
 
-    addLocation(item: LocationUpdateInfo) {
-         this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+    addLocation(item: LineItem) {
+        /* this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
             .map(res => res.json())
             .map(payload => ({ type: 'CREATE_LOCATION', payload }))
-            .subscribe(action => this.store.dispatch(action));
+            .subscribe(action => this.store.dispatch(action));*/
+            this.store.dispatch({ type: 'CREATE_LOCATION', payload: item });
     }
 
 
