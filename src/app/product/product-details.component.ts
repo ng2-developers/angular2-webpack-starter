@@ -10,8 +10,7 @@ import {
   LineItem,
   SDWANLocationInfo,
   ContactInfo,
-  EnterpriseAddress,
-  LocationUpdateInfo
+  EnterpriseAddress
 } from '../common/models/cart.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
@@ -114,7 +113,7 @@ export class ProductDetailsComponent {
     cart = {
       lineItems: [lineItem]
     };
-    this.cartService.createItem(cart);
+    this.cartService.createCart(cart);
 
   }
 
@@ -124,7 +123,6 @@ export class ProductDetailsComponent {
     let serviceAddress: EnterpriseAddress;
     let shippingAddress: EnterpriseAddress;
     let lineItem: LineItem;
-    let locationInfo: LocationUpdateInfo;
 
     serviceAddress = {
       locationName: 'location 2',
@@ -162,7 +160,7 @@ export class ProductDetailsComponent {
     };
 
 
-    this.cartService.addLocation(lineItem);
+    this.cartService.addItem(lineItem);
 
   }
 
@@ -173,7 +171,6 @@ export class ProductDetailsComponent {
     let serviceAddress: EnterpriseAddress;
     let shippingAddress: EnterpriseAddress;
     let lineItem: LineItem;
-    let locationInfo: LocationUpdateInfo;
 
     serviceAddress = {
       locationName: 'location 2',
@@ -209,7 +206,7 @@ export class ProductDetailsComponent {
       locations: [location]
     };
 
-    this.cartService.addLocation(lineItem);
+    this.cartService.addItem(lineItem);
 
   }
 

@@ -8,13 +8,13 @@ export const cartReducer: ActionReducer<ShoppingCart>
            return Object.assign({}, state, {
              locations: [...state.locations, action.payload]
            });*/
-      case 'CREATE_ITEM':
-        if (state.lineItems === undefined) {
-          return Object.assign({}, state.lineItems, action.payload);
-        }
-        return Object.assign({}, state, {
-          lineItems: [...state.lineItems, action.payload.lineItems]
-        });
+      case 'CREATE_CART':
+      //  if (state.lineItems === undefined) {
+          return Object.assign({}, state, action.payload);
+     //   }
+     //   return Object.assign({}, state, {
+     //     lineItems: [...state.lineItems, action.payload.lineItems]
+     //   });
       /*     case 'UPDATE_ITEM':
              return state.lineItems.map(item => {
                return item.id === action.payload.id ? 
@@ -29,7 +29,7 @@ export const cartReducer: ActionReducer<ShoppingCart>
                return item.id === action.payload.id ? Object.assign({},
                  item.lineItems, [...item.lineItems, action.payload]) : item;
              });*/
-      case 'CREATE_LOCATION':
+      case 'ADD_ITEM':
         /*      if (state.lineItems === undefined) {
                 return Object.assign({}, state.lineItems, action.payload.location);
               }*/
@@ -56,19 +56,22 @@ export const cartReducer: ActionReducer<ShoppingCart>
         }
         return state;
 
-      case 'UPDATE_LOCATION':
-             return state.lineItems.map(item => {
-               item.lineItems.map(location => {
-                 return location.id === action.payload.id ?
-                   Object.assign({}, location, action.payload) : item;
-               });
-             });
-       case 'DELETE_LOCATION':
-             return state.lineItems.map(item => {
-               item.lineItems.filter(location => {
-                 return location.id !== action.payload.id;
-               });
-             });
+      case 'UPDATE_ITEM':
+        state = Object.assign({}, state, {
+          lineItems: (state.lineItems !== undefined) ? state.lineItems.map(lineItem => {
+           return (lineItem.productTemplateId === action.payload.productTemplateId) ?
+              Object.assign({}, lineItem, action.payload) : lineItem;
+          }) : state
+        });
+        return state;
+      case 'DELETE_ITEM':
+        state = Object.assign({}, state, {
+          lineItems: (state.lineItems !== undefined) ?
+           state.lineItems.filter(location => {
+            return location.productTemplateId !== action.payload.productTemplateId;
+          }) : state
+        });
+        return state;
       default:
         return state;
     }

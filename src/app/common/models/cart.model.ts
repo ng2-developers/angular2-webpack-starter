@@ -31,13 +31,6 @@ export interface LineItem {
     locations?: SDWANLocationInfo[];
 }
 
-
-export interface LocationUpdateInfo {
-    id?: number;
-    productTemplateId: string;
-    location: SDWANLocationInfo;
-}
-
 export interface ContactInfo {
     id?: number;
     email: string;

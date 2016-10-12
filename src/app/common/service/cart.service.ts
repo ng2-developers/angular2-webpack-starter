@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { ShoppingCart, LineItem, SDWANLocationInfo , LocationUpdateInfo } from '../models/cart.model';
+import { ShoppingCart, LineItem, SDWANLocationInfo } from '../models/cart.model';
 
 
 
@@ -34,16 +34,12 @@ export class CartService implements OnInit {
             .subscribe(action => this.store.dispatch(action));
     }
 
-    saveItem(item: LineItem) {
-        (item.id) ? this.updateItem(item) : this.createItem(item);
-    }
-
-    createItem(item: ShoppingCart) {
-/*        this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+    createCart(item: ShoppingCart) {
+        this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
             .map(res => res.json())
-            .map(payload => ({ type: 'CREATE_ITEM', payload }))
-            .subscribe(action => this.store.dispatch(action));*/
-        this.store.dispatch({ type: 'CREATE_ITEM', payload: item });            
+            .map(payload => ({ type: 'CREATE_CART', payload }))
+            .subscribe(action => this.store.dispatch(action));
+      //  this.store.dispatch({ type: 'CREATE_CART', payload: item });            
     }
 
     updateItem(item: LineItem) {
@@ -56,12 +52,12 @@ export class CartService implements OnInit {
             .subscribe(action => this.store.dispatch({ type: 'DELETE_ITEM', payload: item }));
     }
 
-    addLocation(item: LineItem) {
-        /* this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
+    addItem(item: LineItem) {
+         this.http.post(`${BASE_URL}`, JSON.stringify(item), HEADER)
             .map(res => res.json())
-            .map(payload => ({ type: 'CREATE_LOCATION', payload }))
-            .subscribe(action => this.store.dispatch(action));*/
-            this.store.dispatch({ type: 'CREATE_LOCATION', payload: item });
+            .map(payload => ({ type: 'ADD_ITEM', payload }))
+            .subscribe(action => this.store.dispatch(action));
+      //      this.store.dispatch({ type: 'ADD_ITEM', payload: item });
     }
 
 
