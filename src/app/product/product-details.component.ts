@@ -106,4 +106,26 @@ export class ProductDetailsComponent {
       () => this.loading = false);
 
   }
+
+  onClickLinkDesc(event){
+    console.log("test-link-desc");
+    event.preventDefault();
+    document.getElementById('link-desc').scrollIntoView();
+    return true;
+  }
+  
+  onClickLinkFeat(event){
+    console.log("test-link-feat");
+    event.preventDefault();
+    document.getElementById('link-feat').scrollIntoView();
+    //$(this).css('padding', '75px 0px 0px 0px');
+    //$(event).css({padding:"75px 0px 0px 0px"});
+  }
+  
+  onClickLinkPric(event){
+    console.log("test-link-pric");
+    event.preventDefault();
+    document.getElementById('link-pric').scrollIntoView();
+  }
+
 }
