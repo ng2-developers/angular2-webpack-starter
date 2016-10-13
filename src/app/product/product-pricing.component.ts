@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { PriceVariant } from '../common/models/pricing.model';
+import { Pricing } from '../common/models/pricing.model';
 
 @Component({
   selector: 'product-pricing',
@@ -7,5 +7,14 @@ import { PriceVariant } from '../common/models/pricing.model';
   templateUrl: './product-pricing.component.html'
 })
 export class ProductPricingComponent {
-  @Input() prices: PriceVariant[];
+  @Input() prices: Pricing;
+  @Input() term: string;
+  @Input() transport: string;
+  currentPrice: number;
+  options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
+
+  onTermClick(term: string) {
+    this.term = term;
+    console.log(term);
+  }
 }

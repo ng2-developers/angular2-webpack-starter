@@ -10,9 +10,9 @@
 				<nav class="navbar-local">
 					<label class="text-success">Term</label>
 					<ul class="nav navbar-nav">
-						<li class="active"><a class="text-lowercase" href="#">12m</a></li>
-						<li><a class="text-lowercase" href="#">24m</a></li>
-						<li><a class="text-lowercase" href="#">36m</a></li>
+						<li [class.active]="term === '12'"><a class="text-lowercase" (click)="onTermClick('12')">12m</a></li>
+						<li [class.active]="term === '24'"><a class="text-lowercase" (click)="onTermClick('24')">24m</a></li>
+						<li [class.active]="term === '36'"><a class="text-lowercase" (click)="onTermClick('36')">36m</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -29,18 +29,27 @@
 						<h3 class="col col-30">With CenturyLink Transport</h3>
 					</div>
 					<ul class="new-list-view">
-						<li>
+						<!--{{prices | json}} -->
+						<li *ngFor="let variant of prices.productVariants">
 							<div class="list-view-item text-center">
-								<div class="col col-40"><span class="col-header">Account</span>SD-WAN BASIC
+								<div class="col col-40"><span class="col-header">Account</span>{{variant.name}}
 									<svg class="cyclops-icon md pull-right" aria-hidden="true">
 										<use xlink:href='#icon-question-circle' />
 									</svg>
 								</div>
-								<div class="col col-30 active"><span class="col-header">With My Own Transport</span>$ 200</div>
-								<div class="col col-30"><span class="col-header">With CenturyLink Transport</span>$ 175</div>
+								<div class="col col-30 active"><span class="col-header">With My Own Transport</span>
+									<p *ngIf="term === '12'">$ {{variant.priceInfo.term_12.own}}</p>
+									<p *ngIf="term === '24'">$ {{variant.priceInfo.term_24.own}}</p>
+									<p *ngIf="term === '36'">$ {{variant.priceInfo.term_36.own}}</p>
+								</div>
+								<div class="col col-30"><span class="col-header">With CenturyLink Transport</span>
+									<p *ngIf="term === '12'">$ {{variant.priceInfo.term_12.ctl}}</p>
+									<p *ngIf="term === '24'">$ {{variant.priceInfo.term_24.ctl}}</p>
+									<p *ngIf="term === '36'">$ {{variant.priceInfo.term_36.ctl}}</p>
+								</div>
 							</div>
 						</li>
-						<li>
+						<!--					<li>
 							<div class="list-view-item text-center">
 								<div class="col col-40"><span class="col-header">Account</span>SD-WAN BASIC HA
 									<svg class="cyclops-icon md pull-right" aria-hidden="true">
@@ -72,7 +81,7 @@
 								<div class="col col-30"><span class="col-header">With My Own Transport</span>$ 350</div>
 								<div class="col col-30"><span class="col-header">With CenturyLink Transport</span>$ 325</div>
 							</div>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 				<p class="text-right"><small>*Above prices does not include Taxes and Non recurring charges</small></p>
