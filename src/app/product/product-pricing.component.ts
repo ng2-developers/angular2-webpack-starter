@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pricing } from '../common/models/pricing.model';
+import { Pricing , ActiveStatus } from '../common/models/pricing.model';
 
 @Component({
   selector: 'product-pricing',
@@ -9,9 +9,11 @@ import { Pricing } from '../common/models/pricing.model';
 export class ProductPricingComponent {
   @Input() prices: Pricing;
   @Input() term: string;
+  @Input() status: ActiveStatus;
   transport: string;
   currentPrice: number;
   activeIndex: string;
+ // status: ActiveStatus;
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   onTermClick(term: string) {
@@ -19,7 +21,15 @@ export class ProductPricingComponent {
     console.log(term);
   }
 
-  onPriceSelection(n: string) {
-    this.activeIndex = n;
+  constructor() {
+
+  }
+
+  onPriceSelection(mode: string, sku: string, price: number) {
+    this.status = {
+      mode: mode,
+      sku: sku
+    };
+    this.currentPrice = price;
   }
 }

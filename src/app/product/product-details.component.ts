@@ -4,7 +4,7 @@ import { Store, Action } from '@ngrx/store';
 
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
-import { Pricing } from '../common/models/pricing.model';
+import { Pricing , ActiveStatus } from '../common/models/pricing.model';
 import {
   ShoppingCart,
   LineItem,
@@ -35,7 +35,7 @@ export class ProductDetailsComponent {
   error: boolean;
   errorAlert: Alert;
   term: String;
-  transport: String;
+  status: ActiveStatus;
 
 
   public totalItems: number = 64;
@@ -57,8 +57,10 @@ export class ProductDetailsComponent {
   //  this.loadPricing();
     this.title = 'Description';
     this.term = '12';
-    this.transport = 'own';
-
+    this.status = {
+      mode: 'own',
+      sku: 'SDWANBASIC'
+    };
     /*  this.addCartItem();
       this.addLocation();
       this.addLocation2();

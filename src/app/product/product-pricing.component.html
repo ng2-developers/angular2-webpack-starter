@@ -17,7 +17,7 @@
 				</nav>
 			</div>
 			<div class="col-sm-6">
-				<h4 class="text-right text-success"><small>Pricing</small> $200 <small>/ mo</small></h4>
+				<h4 class="text-right text-success"><small>Pricing</small> $ {{currentPrice}} <small>/ mo</small></h4>
 			</div>
 		</div>
 		<div class="row">
@@ -37,15 +37,17 @@
 										<use xlink:href='#icon-question-circle' />
 									</svg>
 								</div>
-								<div class="col col-30" ><span class="col-header">With My Own Transport</span>
-									<p *ngIf="term === '12'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_12.own}}</p>
-									<p *ngIf="term === '24'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_24.own}}</p>
-									<p *ngIf="term === '36'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_36.own}}</p>
+								<div class="col col-30" [class.active]="variant.sku === status.sku && 
+									status.mode ==='own'"><span class="col-header">With My Own Transport</span>
+									<p *ngIf="term === '12'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_12.own)">$ {{variant.priceInfo.term_12.own}}</p>
+									<p *ngIf="term === '24'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_24.own)">$ {{variant.priceInfo.term_24.own}}</p>
+									<p *ngIf="term === '36'" (click)="onPriceSelection('own',variant.sku, variant.priceInfo.term_36.own)">$ {{variant.priceInfo.term_36.own}}</p>
 								</div>
-								<div class="col col-30" ><span class="col-header">With CenturyLink Transport</span>
-									<p *ngIf="term === '12'" (click)="onPriceSelection('ctl',variant.sku)">$ {{variant.priceInfo.term_12.ctl}}</p>
-									<p *ngIf="term === '24'" (click)="onPriceSelection('ctl',variant.sku)">$ {{variant.priceInfo.term_24.ctl}}</p>
-									<p *ngIf="term === '36'" (click)="onPriceSelection('ctl',variant.sku)" >$ {{variant.priceInfo.term_36.ctl}}</p>
+								<div class="col col-30" [class.active]="variant.sku === status.sku && 
+									status.mode ==='ctl'"><span class="col-header">With CenturyLink Transport</span>
+									<p *ngIf="term === '12'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_12.ctl)">$ {{variant.priceInfo.term_12.ctl}}</p>
+									<p *ngIf="term === '24'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_24.ctl)">$ {{variant.priceInfo.term_24.ctl}}</p>
+									<p *ngIf="term === '36'" (click)="onPriceSelection('ctl',variant.sku, variant.priceInfo.term_36.ctl)">$ {{variant.priceInfo.term_36.ctl}}</p>
 								</div>
 							</div>
 						</li>

@@ -26,3 +26,8 @@ export interface TermPrice {
     own: number;
     ctl: number;
 }
+
+export interface ActiveStatus {
+    mode: string;
+    sku: string;
+}
