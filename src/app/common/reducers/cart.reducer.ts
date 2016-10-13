@@ -39,7 +39,7 @@ export const cartReducer: ActionReducer<ShoppingCart>
             if (lineItem.productTemplateId === action.payload.productTemplateId) {
               add = false;
               return Object.assign({}, lineItem, {
-                locations: [...lineItem.locations, action.payload]
+                locations: [...lineItem.locations, ...action.payload.locations]
               }
               );
             }
@@ -48,10 +48,10 @@ export const cartReducer: ActionReducer<ShoppingCart>
         });
         if (add) {
           if (state.lineItems === undefined) {
-            return Object.assign({}, state, { lineItems: action.payload });
+            return Object.assign({}, state, { lineItems: [...action.payload] });
           }
           return Object.assign({}, state, {
-            lineItems: [...state.lineItems, action.payload]
+            lineItems: [...state.lineItems, ...action.payload]
           });
         }
         return state;
@@ -67,10 +67,18 @@ export const cartReducer: ActionReducer<ShoppingCart>
       case 'UPDATE_LOCATION': // need to pass { productTemplateid & location } LocationInfo
         state = Object.assign({}, state, {
           lineItems: (state.lineItems !== undefined) ? state.lineItems.map(lineItem => {
-            if (lineItem.productTemplateId === action.payload.productTemplateId) {
-              lineItem.locations.map(location => {
-                return (location.id === action.payload.location.id) ?
-                  Object.assign({}, location, action.payload.location) : location;
+            if (lineItem.productTemplateId === action.payload.productTemplateId
+              && lineItem.locations !== undefined) {
+              let locations = lineItem.locations.map(location => {
+
+                if (location.id === action.payload.location.id) {
+                  return Object.assign({}, location, action.payload.location);
+                } else {
+                  return location;
+                }
+              });
+              return Object.assign({}, lineItem, {
+                locations: [...locations]
               });
             } else { return lineItem; }
           }) : state
@@ -87,10 +95,14 @@ export const cartReducer: ActionReducer<ShoppingCart>
       case 'DELETE_LOCATION': // need to pass { productTemplateid & location } LocationInfo
         state = Object.assign({}, state, {
           lineItems: (state.lineItems !== undefined) ? state.lineItems.map(lineItem => {
-            if (lineItem.productTemplateId === action.payload.productTemplateId) {
-              lineItem.locations.filter(location => {
+            if (lineItem.productTemplateId === action.payload.productTemplateId
+              && lineItem.locations !== undefined ) {
+              let locations = lineItem.locations.filter(location => {
                 return location.id !== action.payload.location.id;
-               });
+              });
+              return Object.assign({}, lineItem, {
+                locations: [...locations]
+              });
             } else { return lineItem; }
           }) : state
         });

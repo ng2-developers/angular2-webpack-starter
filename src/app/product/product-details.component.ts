@@ -10,7 +10,8 @@ import {
   LineItem,
   SDWANLocationInfo,
   ContactInfo,
-  EnterpriseAddress
+  EnterpriseAddress,
+  LocationInfo
 } from '../common/models/cart.model';
 import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
@@ -55,6 +56,8 @@ export class ProductDetailsComponent {
     this.addCartItem();
     this.addLocation();
     this.addLocation2();
+    this.updateLocation();
+    this.deleteLocation();
     // this.products.subscribe(v => console.log(v));
   }
 
@@ -164,6 +167,93 @@ export class ProductDetailsComponent {
 
   }
 
+    private updateLocation() {
+    let location: SDWANLocationInfo;
+    let newLocation: LocationInfo;
+    let serviceContact: ContactInfo;
+    let serviceAddress: EnterpriseAddress;
+    let shippingAddress: EnterpriseAddress;
+    let lineItem: LineItem;
+
+    serviceAddress = {
+      locationName: 'location 2',
+      addressLine: 'address line 2',
+      street: 'street 2',
+      city: 'Highlands Rancher',
+      country: 'US',
+      state: 'CO',
+      zipCode: '71211'
+    };
+
+    shippingAddress = serviceAddress;
+
+    serviceContact = {
+      email: 'tsukhu@gmail.com',
+      firstName: 'Tarun',
+      lastName: 'Sukhu',
+      phoneNumber: '999999'
+    };
+
+    location = {
+      id: 2,
+      serviceContact: serviceContact,
+      serviceAddress: serviceAddress,
+      shippingAddress: shippingAddress
+    };
+
+    newLocation = {
+      productTemplateId: 'SDWANBASIC',
+      location: location
+    };
+
+
+    this.cartService.updateLocation(newLocation);
+
+  }
+
+ private deleteLocation() {
+    let location: SDWANLocationInfo;
+    let newLocation: LocationInfo;
+    let serviceContact: ContactInfo;
+    let serviceAddress: EnterpriseAddress;
+    let shippingAddress: EnterpriseAddress;
+    let lineItem: LineItem;
+
+    serviceAddress = {
+      locationName: 'location 2',
+      addressLine: 'address line 2',
+      street: 'street 2',
+      city: 'Highlands Rancher',
+      country: 'US',
+      state: 'CO',
+      zipCode: '71211'
+    };
+
+    shippingAddress = serviceAddress;
+
+    serviceContact = {
+      email: 'tsukhu@gmail.com',
+      firstName: 'Tarun',
+      lastName: 'Sukhu',
+      phoneNumber: '999999'
+    };
+
+    location = {
+      id: 2,
+      serviceContact: serviceContact,
+      serviceAddress: serviceAddress,
+      shippingAddress: shippingAddress
+    };
+
+    newLocation = {
+      productTemplateId: 'SDWANBASIC',
+      location: location
+    };
+
+
+    this.cartService.deleteLocation(newLocation);
+
+  }
 
   private addLocation2() {
     let location: SDWANLocationInfo;

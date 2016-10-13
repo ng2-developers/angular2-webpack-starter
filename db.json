@@ -4,39 +4,34 @@
     "email": "tsukhu@hcl.com"
   },
   "cart": {
-    "productName": "SDWAN",
-    "productId": "SDWAN",
-    "productTemplateName": "SDWAN BASIC HA",
-    "productTemplateId": "SDWANBASICHA",
-    "locations": [
-      {
-        "id": 2,
-        "serviceContact": {
-          "email": "tsukhu@hcl.com",
-          "firstName": "Tarun",
-          "lastName": "Sukhu",
-          "phoneNumber": "111122223333"
-        },
-        "serviceAddress": {
-          "locationName": "location 2",
-          "addressLine": "address line 2",
-          "street": "street 2",
-          "city": "Highlands Ranch",
-          "country": "US",
-          "state": "CO",
-          "zipCode": "71200"
-        },
-        "shippingAddress": {
-          "locationName": "location 2",
-          "addressLine": "address line 2",
-          "street": "street 2",
-          "city": "Highlands Ranch",
-          "country": "US",
-          "state": "CO",
-          "zipCode": "71200"
-        }
+    "productTemplateId": "SDWANBASIC",
+    "location": {
+      "id": 2,
+      "serviceContact": {
+        "email": "tsukhu@gmail.com",
+        "firstName": "Tarun",
+        "lastName": "Sukhu",
+        "phoneNumber": "999999"
+      },
+      "serviceAddress": {
+        "locationName": "location 2",
+        "addressLine": "address line 2",
+        "street": "street 2",
+        "city": "Highlands Rancher",
+        "country": "US",
+        "state": "CO",
+        "zipCode": "71211"
+      },
+      "shippingAddress": {
+        "locationName": "location 2",
+        "addressLine": "address line 2",
+        "street": "street 2",
+        "city": "Highlands Rancher",
+        "country": "US",
+        "state": "CO",
+        "zipCode": "71211"
       }
-    ]
+    }
   },
   "products": [
     {
