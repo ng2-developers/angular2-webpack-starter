@@ -53,11 +53,11 @@ export class ProductDetailsComponent {
     this.loadProduct();
     //   this.loadPricing();
     this.title = 'Description';
-    this.addCartItem();
+  /*  this.addCartItem();
     this.addLocation();
     this.addLocation2();
     this.updateLocation();
-    this.deleteLocation();
+    this.deleteLocation();*/
     // this.products.subscribe(v => console.log(v));
   }
 
