@@ -9,12 +9,17 @@ import { Pricing } from '../common/models/pricing.model';
 export class ProductPricingComponent {
   @Input() prices: Pricing;
   @Input() term: string;
-  @Input() transport: string;
+  transport: string;
   currentPrice: number;
+  activeIndex: string;
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   onTermClick(term: string) {
     this.term = term;
     console.log(term);
+  }
+
+  onPriceSelection(n: string) {
+    this.activeIndex = n;
   }
 }

@@ -30,22 +30,22 @@
 					</div>
 					<ul class="new-list-view">
 						<!--{{prices | json}} -->
-						<li *ngFor="let variant of prices.productVariants">
+						<li *ngFor="let variant of prices.productVariants;let i of index">
 							<div class="list-view-item text-center">
 								<div class="col col-40"><span class="col-header">Account</span>{{variant.name}}
 									<svg class="cyclops-icon md pull-right" aria-hidden="true">
 										<use xlink:href='#icon-question-circle' />
 									</svg>
 								</div>
-								<div class="col col-30 active"><span class="col-header">With My Own Transport</span>
-									<p *ngIf="term === '12'">$ {{variant.priceInfo.term_12.own}}</p>
-									<p *ngIf="term === '24'">$ {{variant.priceInfo.term_24.own}}</p>
-									<p *ngIf="term === '36'">$ {{variant.priceInfo.term_36.own}}</p>
+								<div class="col col-30" ><span class="col-header">With My Own Transport</span>
+									<p *ngIf="term === '12'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_12.own}}</p>
+									<p *ngIf="term === '24'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_24.own}}</p>
+									<p *ngIf="term === '36'" (click)="onPriceSelection('own',variant.sku)">$ {{variant.priceInfo.term_36.own}}</p>
 								</div>
-								<div class="col col-30"><span class="col-header">With CenturyLink Transport</span>
-									<p *ngIf="term === '12'">$ {{variant.priceInfo.term_12.ctl}}</p>
-									<p *ngIf="term === '24'">$ {{variant.priceInfo.term_24.ctl}}</p>
-									<p *ngIf="term === '36'">$ {{variant.priceInfo.term_36.ctl}}</p>
+								<div class="col col-30" ><span class="col-header">With CenturyLink Transport</span>
+									<p *ngIf="term === '12'" (click)="onPriceSelection('ctl',variant.sku)">$ {{variant.priceInfo.term_12.ctl}}</p>
+									<p *ngIf="term === '24'" (click)="onPriceSelection('ctl',variant.sku)">$ {{variant.priceInfo.term_24.ctl}}</p>
+									<p *ngIf="term === '36'" (click)="onPriceSelection('ctl',variant.sku)" >$ {{variant.priceInfo.term_36.ctl}}</p>
 								</div>
 							</div>
 						</li>
