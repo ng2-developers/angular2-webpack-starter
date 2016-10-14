@@ -5,7 +5,6 @@ import { Store, Action } from '@ngrx/store';
 
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
-//import { PriceTerm, PriceVariant } from '../common/models/pricing.model';
 import { Pricing , ActiveStatus } from '../common/models/pricing.model';
 import {
   ShoppingCart,
@@ -31,8 +30,6 @@ import { CartService } from '../common/service/cart.service';
 })
 export class ProductDetailsComponent {
   product: Observable<Product>;
-  //prices: Observable<Array<PriceVariant>>;
-  //prices: Observable<Array<PriceTerm>>;
   prices: Observable<Pricing>;
   cart: Observable<ShoppingCart>;
   title: String;
@@ -59,20 +56,12 @@ export class ProductDetailsComponent {
     this.loading = false;
     this.error = false;
     this.loadProduct();
-  //  this.loadPricing();
     this.title = 'Description';
     this.term = '12';
     this.status = {
       mode: '',
       sku: ''
     };
-
-    /*  this.addCartItem();
-      this.addLocation();
-      this.addLocation2();
-      this.updateLocation();
-      this.deleteLocation();*/
-    // this.products.subscribe(v => console.log(v));
   }
 
   public setPage(pageNo: number): void {

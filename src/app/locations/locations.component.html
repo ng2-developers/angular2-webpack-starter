@@ -1,275 +1,299 @@
 <div class="container">
-    <div class="row">
-    <div class="col-sm-12">
-        <div class="alert alert-success">
-        <h4>New Location Added.</h4>
-        </div>
-    </div>
-    </div>
-    <div class="row page-heading">
+      <div class="row">
         <div class="col-sm-12">
-        <h2>Locations</h2>
-        <div class="card">
-            <div class="card-block">
-                <h5>SD-WAN BASIC <span> (12m, With My Own Transport)</span><span class="pull-right"><a href="#"><svg class="cyclops-icon" aria-hidden="true"><use /></svg> Back</a></span></h5>
-            </div>
-            </div>
+          <div class="alert alert-success">
+            <h4>New Location Added.</h4>
+          </div>
         </div>
-    </div>
+        </div>
 
-    <section>
-        <div class="row">
-        <div class="col-md-12">
-            <div class="row">
+        <div class="row page-heading">
+          <div class="col-sm-12">
+            <h2>Locations</h2>
+            <div class="card">
+              <div class="card-block">
+                  <h5>SD-WAN BASIC <span> (12m, With My Own Transport)</span><span class="pull-right"><a href="#"><svg class="cyclops-icon" aria-hidden="true"><use /></svg> Back</a></span></h5>
+              </div>
+              </div>
+          </div>
+        </div>
+      
+      <section>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5>Service Contact</h5>
+                </div>
+                <div class="col-sm-6 text-right">
+                  <button class="btn btn-primary btn-lg" >Batch Upload</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+                <form class="form-horizontal" [formGroup]="form"  novalidate (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
+                  <div class="col-sm-9">
+                    <input type="email" class="form-control" id="horizontalFormEmail" formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+					          <p style="color:red;" [hidden]="(form.controls.email.valid) || (form.controls.email.pristine && !submitted)">Email address should be profession email</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">First Name</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="firstName">
+                    <p style="color:red;" [hidden]="form.controls.firstName.valid || (form.controls.firstName.pristine && !submitted)">Firstname field is required and should not be more than 32 characters</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Last Name</label>
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="lastName">
+                    <p style="color:red;" [hidden]="form.controls.lastName.valid || (form.controls.lastName.pristine && !submitted)">Lastname field is required and should not be more than 32 characters</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Primary Phone</label>
+                  <div class="col-sm-5">
+                    <input type="tel" class="form-control" id="horizontalFormPassword" formControlName="primaryPhone" pattern="^((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}$">
+                    <p style="color:red;" [hidden]="form.controls.primaryPhone.valid || (form.controls.primaryPhone.pristine && !submitted)">please provide valid phone number</p>
+
+                  </div>
+                </div>
+
+                <!-- Service Address Section -->
+
+                <h5 class="section-heading">Service Address</h5>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="locationName">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Address</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="address">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Street</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="street">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Country</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="inputSelect" formControlName="country">
+                      <option selected="" value="United States of America">United States of America</option>
+                      <option value="Alabama">Alabama</option>
+                      <option value="Alaska">Alaska</option>
+                      <option value="Arizona">Arizona</option>
+                      <option value="Arkansas">Arkansas</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">City</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="city" pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
+                    <p style="color:red;" [hidden]="form.controls.city.valid || (form.controls.city.pristine && !submitted)">field required and should be alphabets only</p>
+                    </div>
+                    <div class="col-sm-7">
+                        <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
+                        <div class="col-sm-9">
+                        <div class="row">
+                          <select class="form-control" id="inputSelect" formControlName="state">
+                            <option selected="" value=" - Select -">&nbsp;- Select -</option>
+                            <option value="Alabama">Alabama</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Arizona">Arizona</option>
+                            <option value="Arkansas">Arkansas</option>
+                            <option value="California">California</option>
+                          </select>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="zipCode" pattern="^([0-9]+-)*[0-9]+$">
+                    <p style="color:red;" [hidden]="form.controls.zipCode.valid || (form.controls.zipCode.pristine && !submitted)">please provide valid zip code</p>
+                  </div>
+                </div>
+
+                <!-- Shipping Address Section -->
+                <div>
+                <h5>Shipping Address</h5>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label sr-only">Select Address</label>
+                  <div class="col-sm-9 col-sm-push-3">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" value="" formControlName="checkAddress" (change)="onCheckSameServiceAddress($event)"/> Same as Service Address
+
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingLocationName" [value]="form.value.checkAddress?form.value.locationName:form.value.shippingLocationName">
+                    <p style="color:red;" [hidden]="form.controls.shippingLocationName.valid || (form.controls.shippingLocationName.pristine && !submitted)">Location name is required</p>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Address</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingAddress" [value]="form.value.checkAddress?form.value.address:form.value.shippingAddress">
+                    <p style="color:red;" [hidden]="form.controls.shippingAddress.valid || (form.controls.shippingAddress.pristine && !submitted)">Address is required</p>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Street</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingStreet" [value]="form.value.checkAddress?form.value.street:form.value.shippingStreet">
+                    <p style="color:red;" [hidden]="form.controls.shippingStreet.valid || (form.controls.shippingStreet.pristine && !submitted)">Street is required</p>
+
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Country</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" id="inputSelect" formControlName="shippingCountry" >
+                      <option selected="" value="United States of America" [attr.selected]="form.value.checkAddress ? form.value.country=='United States of America'? true:null : null">United States of America</option>
+                      <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.country=='Alabama'? true:null : null">Alabama</option>
+                      <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.country=='Alaska'? true:null : null">Alaska</option>
+                      <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.country=='Arizona'? true:null : null">Arizona</option>
+                      <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.country=='Arkansas'? true:null : null">Arkansas</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">City</label>
+                  <div class="col-sm-9">
+                    <div class="row">
+                    <div class="col-sm-5">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingCity" [value]="form.value.checkAddress?form.value.city:form.value.shippingCity">
+                    <p style="color:red;" [hidden]="form.controls.shippingCity.valid || (form.controls.shippingCity.pristine && !submitted)">field required and should be alphabets only</p>
+                    </div>
+                    <div class="col-sm-7">
+                        <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
+                        <div class="col-sm-9">
+                        <div class="row">
+                          <select class="form-control" id="inputSelect" formControlName="shippingState">
+                            <option selected="" value=" - Select -">&nbsp;- Select -</option>
+                            <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.state=='Alabama'? true:null : null">Alabama</option>
+                            <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.state=='Alaska'? true:null : null">Alaska</option>
+                            <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.state=='Arizona'? true:null : null">Arizona</option>
+                            <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.state=='Arkansas'? true:null : null">Arkansas</option>
+                            <option value="California" [attr.selected]="form.value.checkAddress ? form.value.state=='California'? true:null : null">California</option>
+                          </select>
+                          </div>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
+                  <div class="col-sm-2">
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingZipCode" [value]="form.value.checkAddress?form.value.zipCode:form.value.shippingZipCode" pattern="^([0-9]+-)*[0-9]+$">
+                    <p style="color:red;" [hidden]="form.controls.shippingZipCode.valid || (form.controls.shippingZipCode.pristine && !submitted)">please provide valid zip code</p>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Add Location</button>
+                  </div>
+                </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <hr>
+          <div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Location</th>
+                    <th>Service Contact</th>
+                    <th>Service Address</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let location of locations">
+                    <td><svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-angle-right'/></svg></td>
+                    <td>{{location.locationName}} </td>
+                    <td>{{location.firstName+' '+location.lastName}}</td>
+                    <td>{{location.address+' '+location.street+' '+location.country+' '+location.city+' '+location.state+' '+location.zipCode}}</td>
+                    <td>
+                    <svg class="cyclops-icon md" >Edit</svg>
+                    <svg class="cyclops-icon md" aria-hidden="true"><use xlink:href='#icon-times' (click)="onDeleteRequest()"/></svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              
+            </div>
+          </div>
+          <div class="row">
             <div class="col-sm-6">
-                <h5>Service Contact</h5>
+              <nav>
+                <ul class="pagination">
+                  <li class="disabled">
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
             <div class="col-sm-6 text-right">
-                <button class="btn btn-primary btn-lg">Batch Upload</button>
+              <p>Total Locations: <span>48</span></p>
             </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+                <div class="col-xs-5">
+                  <button class="btn btn-primary btn-lg">Add Another Product Option</button>
+                </div>
+                <div class="col-xs-7">
+                  <button class="btn btn-primary btn-lg">Proceed</button>
+                </div>
+              </div>
             </div>
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-md-8">
-                            <form class="form-horizontal" [formGroup]="form"  novalidate (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-9">
-                <input type="email" class="form-control" id="horizontalFormEmail" formControlName="email">
-                
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">First Name</label>
-                <div class="col-sm-5">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="firstName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Last Name</label>
-                <div class="col-sm-5">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="lastName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Primary Phone</label>
-                <div class="col-sm-5">
-                <input type="tel" class="form-control" id="horizontalFormPassword" formControlName="primaryPhone">
-                </div>
-            </div>
-
-            <!-- Service Address Section -->
-
-            <h5 class="section-heading">Service Address</h5>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="locationName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Address</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="address">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Street</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="street">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Country</label>
-                <div class="col-sm-9">
-                <select class="form-control" id="inputSelect" formControlName="country">
-                    <option selected="" value="United States of America">United States of America</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">City</label>
-                <div class="col-sm-9">
-                <div class="row">
-                <div class="col-sm-5">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="city">
-                </div>
-                <div class="col-sm-7">
-                    <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
-                    <div class="col-sm-9">
-                    <div class="row">
-                        <select class="form-control" id="inputSelect" formControlName="state">
-                        <option selected="" value=" - Select -">&nbsp;- Select -</option>
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="Arizona">Arizona</option>
-                        <option value="Arkansas">Arkansas</option>
-                        <option value="California">California</option>
-                        </select>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
-                <div class="col-sm-2">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="zipCode">
-                </div>
-            </div>
-
-            <!-- Shipping Address Section -->
-            <div>
-            <h5>Shipping Address</h5>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label sr-only">Select Address</label>
-                <div class="col-sm-9 col-sm-push-3">
-                <div class="checkbox">
-                    <label>
-                    <input type="checkbox" value="" formControlName="checkAddress" (change)="onCheckSameServiceAddress($event)"/> Same as Service Address
-                    </label>
-                </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingLocationName" [value]="form.value.checkAddress?form.value.locationName:form.value.shippingLocationName">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Address</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingAddress" [value]="form.value.checkAddress?form.value.address:form.value.shippingAddress">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Street</label>
-                <div class="col-sm-9">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingStreet" [value]="form.value.checkAddress?form.value.street:form.value.shippingStreet">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Country</label>
-                <div class="col-sm-9">
-                <select class="form-control" id="inputSelect" formControlName="shippingCountry" >
-                    <option selected="" value="United States of America" [attr.selected]="form.value.checkAddress ? form.value.country=='United States of America'? true:null : null">United States of America</option>
-                    <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.country=='Alabama'? true:null : null">Alabama</option>
-                    <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.country=='Alaska'? true:null : null">Alaska</option>
-                    <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.country=='Arizona'? true:null : null">Arizona</option>
-                    <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.country=='Arkansas'? true:null : null">Arkansas</option>
-                </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">City</label>
-                <div class="col-sm-9">
-                <div class="row">
-                <div class="col-sm-5">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingCity" [value]="form.value.checkAddress?form.value.city:form.value.shippingCity">
-                </div>
-                <div class="col-sm-7">
-                    <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
-                    <div class="col-sm-9">
-                    <div class="row">
-                        <select class="form-control" id="inputSelect" formControlName="shippingState">
-                        <option selected="" value=" - Select -">&nbsp;- Select -</option>
-                        <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.state=='Alabama'? true:null : null">Alabama</option>
-                        <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.state=='Alaska'? true:null : null">Alaska</option>
-                        <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.state=='Arizona'? true:null : null">Arizona</option>
-                        <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.state=='Arkansas'? true:null : null">Arkansas</option>
-                        <option value="California" [attr.selected]="form.value.checkAddress ? form.value.state=='California'? true:null : null">California</option>
-                        </select>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
-                <div class="col-sm-2">
-                <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingZipCode" [value]="form.value.checkAddress?form.value.zipCode:form.value.shippingZipCode">
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                <button type="submit" class="btn btn-primary btn-lg" [disabled]="!form.valid">Add Location</button>
-                </div>
-            </div>
-            </div>
-            </form>
-        </div>
-        </div>
-        <hr>
-        <div>
-        <div class="row">
-        <div class="col-sm-12">
-            <table class="table">
-            <thead>
-                <tr>
-                <th></th>
-                <th>Location</th>
-                <th>Service Contact</th>
-                <th>Service Address</th>
-                <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody [innerHTML]="bindData">
-                
-                
-            </tbody>
-            </table>
-            
-        </div>
-        </div>
-        <div class="row">
-        <div class="col-sm-6">
-            <nav>
-            <ul class="pagination">
-                <li class="disabled">
-                <a href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                </li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li>
-                <a href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-                </li>
-            </ul>
-            </nav>
-        </div>
-        <div class="col-sm-6 text-right">
-            <p>Total Locations: <span>48</span></p>
-        </div>
-        </div>
-        <hr>
-        <div class="row">
-        <div class="col-sm-12">
-            <div class="row">
-            <div class="col-xs-5">
-                <button class="btn btn-primary btn-lg">Add Another Product Option</button>
-            </div>
-            <div class="col-xs-7">
-                <button class="btn btn-primary btn-lg">Proceed</button>
-            </div>
-            </div>
-        </div>
-        </div>
-        </div>
-    </section>
-</div>
+          </div>
+          </div>
+      </section>
+      </div>

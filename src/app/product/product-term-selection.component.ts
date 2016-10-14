@@ -11,8 +11,8 @@ export class ProductTermSelectionComponent {
   public termMonth:string;
   
   getMonth(params) {
-    console.log(params.srcElement.innerHTML);  
-    this.termMonth = params.srcElement.innerHTML;
+    console.log("PARAMS: " + params);  
+    //this.termMonth = params.srcElement.innerHTML;
   }
 
 }

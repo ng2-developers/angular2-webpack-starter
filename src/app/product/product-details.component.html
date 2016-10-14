@@ -1,6 +1,7 @@
 <spinner [loading]="loading"></spinner>
 <alert-block *ngIf="!loading && error==true" [message]="errorAlert"></alert-block>
 <div *ngIf="!loading && error==false">
+
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -15,7 +16,7 @@
 	<product-description [item]="product | async" [title]="title"></product-description>
 	<product-features [variants]="(product | async)?.variants"></product-features>
 	<product-pricing [prices]="prices | async" [term]="term" [status]="status"></product-pricing>
-	<!--  <pagination [directionLinks]="true" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"
+	<!--pagination [directionLinks]="true" [boundaryLinks]="true" [totalItems]="totalItems" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)"
         previousText="&lsaquo;" nextText="&rsaquo;" firstText="&laquo;" lastText="&raquo;"
-    ></pagination>
+    ></pagination-->
 </div>
