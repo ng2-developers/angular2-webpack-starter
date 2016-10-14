@@ -10,7 +10,7 @@ export class UserEffects implements OnDestroy {
   @Effect() loadPrices$ = this.actions$
       // Listen for the 'LOAD_PRICES' action
       .ofType('LOAD_PRICES')
-      .switchMap(() => this.pricingService.loadPrices('12')
+      .switchMap(() => this.pricingService.loadPrices()
         // If successful, dispatch success action with result
         .map(payload => ({ type: 'ADD_PRICES', payload }))
         .catch(() => Observable.of({ type: 'LOAD_PRICES_FAILED' }))

@@ -6,7 +6,8 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { Pricing, PriceTerm, PriceVariant } from '../models/pricing.model';
+//import { Pricing, PriceTerm, PriceVariant } from '../models/pricing.model';
+import { Pricing } from '../models/pricing.model';
 
 
 
@@ -23,12 +24,17 @@ const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 @Injectable()
 export class PricingService implements OnInit {
     //pricing: Observable<Array<PriceVariant>>;
-    pricing: Observable<Array<PriceTerm>>;
+    //pricing: Observable<Array<PriceTerm>>;
+    //constructor(
+    //    private http: Http, public store: Store<AppStore>
+    //) {
+        //this.pricing = <Observable<Array<PriceVariant>>>store.select('prices');
+    //    this.pricing = <Observable<Array<PriceTerm>>>store.select('prices');
+    pricing: Observable<Pricing>;
     constructor(
         private http: Http, public store: Store<AppStore>
     ) {
-        //this.pricing = <Observable<Array<PriceVariant>>>store.select('prices');
-        this.pricing = <Observable<Array<PriceTerm>>>store.select('prices');
+        this.pricing = <Observable<Pricing>>store.select('prices');
     }
 
     ngOnInit() {
@@ -36,21 +42,24 @@ export class PricingService implements OnInit {
     }
 
     //loadPrices(term: string): Observable<Array<PriceVariant>> {
-    loadPrices(term: string): Observable<Array<PriceTerm>> {
+    // loadPrices(term: string): Observable<Array<PriceTerm>> {
+    //     return this.http.get(BASE_URL)
+    //         .map(res => res.json())
+    //         .map(res => res.variants)
+    //         //.map((res: PriceVariant[]) => {
+    //         .map((res: PriceTerm[]) => {
+    //             if(term === "12m"){
+    //                 return res.filter(x => x.term_12m);
+    //             }else if(term === "24m"){
+    //                 return res.filter(x => x.term_24m);
+    //             }else if(term === "36m"){
+    //                 return res.filter(x => x.term_36m);
+    //             }
+    //            //return res.filter(x => x.term==term);
+    //         })
+    loadPrices(): Observable<Pricing> {
         return this.http.get(BASE_URL)
             .map(res => res.json())
-            .map(res => res.variants)
-            //.map((res: PriceVariant[]) => {
-            .map((res: PriceTerm[]) => {
-                if(term === "12m"){
-                    return res.filter(x => x.term_12m);
-                }else if(term === "24m"){
-                    return res.filter(x => x.term_24m);
-                }else if(term === "36m"){
-                    return res.filter(x => x.term_36m);
-                }
-               //return res.filter(x => x.term==term);
-            })
             .catch(this.handleError);
     }
 

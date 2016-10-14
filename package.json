@@ -58,7 +58,7 @@
     "webdriver:update": "npm run webdriver-manager update",
     "webpack-dev-server": "webpack-dev-server",
     "webpack": "webpack",
-    "json-server": "json-server --watch src/assets/mock-data/db.json --port 3001"
+    "json-server": "json-server db.json --port 3001"
   },
   "dependencies": {
     "@angular/common": "2.0.0",
