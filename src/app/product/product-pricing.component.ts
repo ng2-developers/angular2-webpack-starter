@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Pricing , ActiveStatus } from '../common/models/pricing.model';
+import { Pricing, ActiveStatus , ProductVariant } from '../common/models/pricing.model';
 
 @Component({
   selector: 'product-pricing',
@@ -13,22 +13,40 @@ export class ProductPricingComponent {
   transport: string;
   currentPrice: number;
   activeIndex: string;
- // status: ActiveStatus;
+  // status: ActiveStatus;
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   onTermClick(term: string) {
     this.term = term;
-    console.log(term);
+    this.status = {
+      mode: 'own',
+      sku: this.prices.productVariants[0].sku
+    };
+    this.getCurrentSelection();
   }
 
-  constructor() {
-
+  getCurrentSelection() {
+    switch (this.term) {
+      case '12':
+        this.currentPrice = this.prices.productVariants[0].priceInfo.term_12.own;
+        break;
+      case '24':
+        this.currentPrice = this.prices.productVariants[0].priceInfo.term_24.own;
+        break;
+      case '36':
+        this.currentPrice = this.prices.productVariants[0].priceInfo.term_36.own;
+        break;
+      default:
+        this.currentPrice = this.prices.productVariants[0].priceInfo.term_12.own;
+    };
   }
 
-  onPriceSelection(mode: string, sku: string, price: number) {
+  onPriceSelection(mode: string, sku: string, price: number, variant: ProductVariant) {
     this.status = {
       mode: mode,
-      sku: sku
+      sku: sku,
+      term: this.term,
+      productVariant: variant
     };
     this.currentPrice = price;
   }

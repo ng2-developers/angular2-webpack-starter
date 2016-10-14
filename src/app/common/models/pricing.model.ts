@@ -30,4 +30,6 @@ export interface TermPrice {
 export interface ActiveStatus {
     mode: string;
     sku: string;
+    term?: string;
+    productVariant?: ProductVariant;
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store, Action } from '@ngrx/store';
 
+
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
 import { Pricing , ActiveStatus } from '../common/models/pricing.model';
@@ -17,6 +18,7 @@ import { Alert } from '../common/models/alert.model';
 import { ProductsService } from '../common/service/products.service';
 import { PricingService } from '../common/service/pricing.service';
 import { CartService } from '../common/service/cart.service';
+
 
 
 
@@ -58,9 +60,10 @@ export class ProductDetailsComponent {
     this.title = 'Description';
     this.term = '12';
     this.status = {
-      mode: 'own',
-      sku: 'SDWANBASIC'
+      mode: '',
+      sku: ''
     };
+
     /*  this.addCartItem();
       this.addLocation();
       this.addLocation2();
