@@ -6,7 +6,8 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { User, EnterpriseInfo} from '../models/user.model';
+import { User, EnterpriseInfo , CartInfo} from '../models/user.model';
+import { CartState } from '../models/cart.model';
 
 
 
@@ -38,13 +39,21 @@ export class AuthService implements OnInit {
         
         let user: User = {
             id: 1,
-            email: username.toString()
+            email: username.toString(),
+            loggedIn: true
         }
 
         this.http.post(`${BASE_URL}`, JSON.stringify(user), HEADER)
             .map(res => res.json())
             .map(payload => ({ type: 'CREATE_USER', payload }))
-            .subscribe(action => this.store.dispatch(action));
+            .subscribe(action => {
+                this.store.dispatch(action)
+                this.addCartInfo(<CartInfo>{
+                    cartState: CartState.LandingPage,
+                    shoppingCartId: '',
+                    cartItemCount: 2
+                })
+            });
 
     }
 
@@ -57,12 +66,18 @@ export class AuthService implements OnInit {
 
     public init() {
 
-       this.store.dispatch({ type: 'INIT_USER', payload: { id: 0, email: ''} });
+       this.store.dispatch({ type: 'INIT_USER'});
 
     }
 
     public addUserInfo(entInfo: EnterpriseInfo) {
-        this.store.dispatch({ type: 'ENT_DETAILS', payload: entInfo });
+        this.store.dispatch({ type: 'UPDATE_ENT_DETAILS', payload: entInfo });
+    }
+
+    public addCartInfo(cartInfo: CartInfo) {
+        this.store.dispatch({ type: 'UPDATE_CART_DETAILS', payload: {
+           cartInfo: cartInfo
+        } });
     }
 
     public check() {

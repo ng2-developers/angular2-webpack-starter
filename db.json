@@ -1,7 +1,8 @@
 {
   "user": {
     "id": 1,
-    "email": "tsukhu@hcl.com"
+    "email": "tsukhu@hcl.com",
+    "loggedIn": true
   },
   "cart": {
     "productTemplateId": "SDWANBASIC",
@@ -160,11 +161,11 @@
     "product_id": 223322117656312,
     "urnId": "sd-wan",
     "name": "SD WAN",
-    "discriptionHtml": "\u003cp\u003eSoftware-defined wide area networking (SD-WAN) is the next evolution of private networking.\u003c/p\u003e",
+    "discriptionHtml": "<p>Software-defined wide area networking (SD-WAN) is the next evolution of private networking.</p>",
     "productType": "Network",
     "currency": "USD",
     "productVariants": [
-            {
+      {
         "variantId": "sdwanbasic",
         "productId": "sdwan1000",
         "name": "SD-WAN BASIC",
@@ -244,9 +245,6 @@
           }
         }
       }
-      
-      
-
     ]
   }
 }

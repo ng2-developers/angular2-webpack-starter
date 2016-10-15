@@ -3,7 +3,8 @@ import { User } from '../models/user.model';
 
 const initialState: User = {
     id: 0,
-    email: ''
+    email: '',
+    loggedIn: false
 };
 
 export const userReducer: ActionReducer<User>
@@ -17,7 +18,9 @@ export const userReducer: ActionReducer<User>
       return initialState;
     case 'INIT_USER':
       return initialState;
-    case 'ENT_DETAILS':
+    case 'UPDATE_ENT_DETAILS':
+      return Object.assign({}, state, action.payload);
+    case 'UPDATE_CART_DETAILS':
       return Object.assign({}, state, action.payload);
     case 'ADD_FINGERPRINT':
       return Object.assign({}, state, action.payload);
