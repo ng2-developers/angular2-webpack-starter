@@ -22,18 +22,25 @@
 							<use xlink:href="#icon-migrate"></use>
 						</svg> Log In</a>
 				</li>
-				<li *ngIf="(user | async)?.loggedIn === true" (click)="logout()">
+			<!--	<li *ngIf="(user | async)?.loggedIn === true" (click)="logout()">
 					<a href="#" role="button" aria-expanded="false">
 						<svg class="cyclops-icon support">
 							<use xlink:href="#icon-user"></use>
 						</svg> Log Out</a>
-				</li>
+				</li> -->
 				<li *ngIf="(user | async)?.loggedIn === false">
 					<a href="#" role="button" aria-expanded="false">
 						<svg class="cyclops-icon support">
 							<use xlink:href="#icon-plus-circle"></use>
 						</svg> Sign up</a>
 				</li>
+				<li class="dropdown" [style.display]="(user | async)?.loggedIn === false? 'none':'list-item'">
+  					<a href="#" role="button">{{ (user | async)?.email }} <svg class="cyclops-icon" aria-hidden="true" *ngIf="(user | async)?.loggedIn === true"><use xlink:href='#icon-caret-down' /></svg></a>
+  					<ul class="dropdown-menu dropdown-menu-right">
+  						<li><a href="#">Your Profile</a></li>
+						<li><button (click)="logout()">Sign Out</button></li>
+  					</ul>
+  				</li>
 				<li class="dropdown">
 					<a href="#" role="button" aria-expanded="false"><span *ngIf="(user | async).cartInfo?.cartItemCount > 0">{{(user | async).cartInfo?.cartItemCount}}</span><svg class="cyclops-icon support"><use xlink:href="#icon-shopping-cart"></use></svg> </a>
 					<ul class="dropdown-menu dropdown-menu-right">
