@@ -14,7 +14,8 @@ export class FingerPrintService implements OnInit {
 
     ngOnInit() {
 
-    } 
+    }
+    
     public getFingerPrint(){
         let fingerprint = new Fingerprint();
         let self = this;

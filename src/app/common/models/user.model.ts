@@ -2,11 +2,14 @@ import { CartState, ShoppingCart } from './cart.model';
 
 export interface User {
     id: number;
+    avatar?: string;
     email: string;
     enterpriseInfo?: EnterpriseInfo;
     fingerPrint?: string;
-    cartState?: CartState;
-    shoppingCartId?: string;
+    cartInfo?: CartInfo;
+    rememberMe?: boolean;
+    token?: string;
+    loggedIn: boolean;
 }
 
 export interface EnterpriseInfo {
@@ -14,4 +17,9 @@ export interface EnterpriseInfo {
     ownTransport: boolean;
 }
 
+export interface CartInfo {
+    cartState: CartState;
+    shoppingCartId: string;
+    cartItemCount: number;
+}
 
