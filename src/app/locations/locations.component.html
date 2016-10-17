@@ -34,38 +34,38 @@
           <div class="row">
             <div class="col-md-8">
                 <form class="form-horizontal" [formGroup]="form"  novalidate (ngSubmit)="onSubmit()">
+                
+                <div formGroupName="serviceContact">
                 <div class="form-group">
                   <label for="horizontalFormEmail" class="col-sm-3 control-label">Email</label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="horizontalFormEmail" formControlName="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
-					          <p style="color:red;" [hidden]="(form.controls.email.valid) || (form.controls.email.pristine && !submitted)">Email address should be profession email</p>
+                    <input type="email" class="form-control" id="horizontalFormEmail" formControlName="email">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">First Name</label>
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="horizontalFormPassword" formControlName="firstName">
-                    <p style="color:red;" [hidden]="form.controls.firstName.valid || (form.controls.firstName.pristine && !submitted)">Firstname field is required and should not be more than 32 characters</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Last Name</label>
                   <div class="col-sm-5">
                     <input type="text" class="form-control" id="horizontalFormPassword" formControlName="lastName">
-                    <p style="color:red;" [hidden]="form.controls.lastName.valid || (form.controls.lastName.pristine && !submitted)">Lastname field is required and should not be more than 32 characters</p>
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Primary Phone</label>
                   <div class="col-sm-5">
-                    <input type="tel" class="form-control" id="horizontalFormPassword" formControlName="primaryPhone" pattern="^((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}$">
-                    <p style="color:red;" [hidden]="form.controls.primaryPhone.valid || (form.controls.primaryPhone.pristine && !submitted)">please provide valid phone number</p>
-
+                    <input type="tel" class="form-control" id="horizontalFormPassword" formControlName="primaryPhone" >
                   </div>
+                </div>
+               
+               
                 </div>
 
                 <!-- Service Address Section -->
-
+                 <div formGroupName="serviceAddress">
                 <h5 class="section-heading">Service Address</h5>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
@@ -102,8 +102,7 @@
                   <div class="col-sm-9">
                     <div class="row">
                     <div class="col-sm-5">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="city" pattern="^([a-zA-Z\u0080-\u024F]+(?:. |-| |'))*[a-zA-Z\u0080-\u024F]*$">
-                    <p style="color:red;" [hidden]="form.controls.city.valid || (form.controls.city.pristine && !submitted)">field required and should be alphabets only</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="city" >
                     </div>
                     <div class="col-sm-7">
                         <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
@@ -126,12 +125,13 @@
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="zipCode" pattern="^([0-9]+-)*[0-9]+$">
-                    <p style="color:red;" [hidden]="form.controls.zipCode.valid || (form.controls.zipCode.pristine && !submitted)">please provide valid zip code</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="zipCode" >
                   </div>
+                </div>
                 </div>
 
                 <!-- Shipping Address Section -->
+                <div formGroupName="shippingAddress">
                 <div>
                 <h5>Shipping Address</h5>
                 <div class="form-group">
@@ -148,24 +148,21 @@
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Location Name</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingLocationName" [value]="form.value.checkAddress?form.value.locationName:form.value.shippingLocationName">
-                    <p style="color:red;" [hidden]="form.controls.shippingLocationName.valid || (form.controls.shippingLocationName.pristine && !submitted)">Location name is required</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingLocationName" [value]="form.value.shippingAddress.checkAddress?form.value.serviceAddress.locationName:form.value.shippingAddress.shippingLocationName">
 
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Address</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingAddress" [value]="form.value.checkAddress?form.value.address:form.value.shippingAddress">
-                    <p style="color:red;" [hidden]="form.controls.shippingAddress.valid || (form.controls.shippingAddress.pristine && !submitted)">Address is required</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingAddress" [value]="form.value.shippingAddress.checkAddress?form.value.serviceAddress.address:form.value.shippingAddress.shippingAddress">
 
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Street</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingStreet" [value]="form.value.checkAddress?form.value.street:form.value.shippingStreet">
-                    <p style="color:red;" [hidden]="form.controls.shippingStreet.valid || (form.controls.shippingStreet.pristine && !submitted)">Street is required</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingStreet" [value]="form.value.shippingAddress.checkAddress?form.value.serviceAddress.street:form.value.shippingAddress.shippingStreet">
 
                   </div>
                 </div>
@@ -173,11 +170,11 @@
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Country</label>
                   <div class="col-sm-9">
                     <select class="form-control" id="inputSelect" formControlName="shippingCountry" >
-                      <option selected="" value="United States of America" [attr.selected]="form.value.checkAddress ? form.value.country=='United States of America'? true:null : null">United States of America</option>
-                      <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.country=='Alabama'? true:null : null">Alabama</option>
-                      <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.country=='Alaska'? true:null : null">Alaska</option>
-                      <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.country=='Arizona'? true:null : null">Arizona</option>
-                      <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.country=='Arkansas'? true:null : null">Arkansas</option>
+                      <option selected="" value="United States of America" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.country=='United States of America'? true:null : null">United States of America</option>
+                      <option value="Alabama" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.country=='Alabama'? true:null : null">Alabama</option>
+                      <option value="Alaska" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.country=='Alaska'? true:null : null">Alaska</option>
+                      <option value="Arizona" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.country=='Arizona'? true:null : null">Arizona</option>
+                      <option value="Arkansas" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.country=='Arkansas'? true:null : null">Arkansas</option>
                     </select>
                   </div>
                 </div>
@@ -186,8 +183,7 @@
                   <div class="col-sm-9">
                     <div class="row">
                     <div class="col-sm-5">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingCity" [value]="form.value.checkAddress?form.value.city:form.value.shippingCity">
-                    <p style="color:red;" [hidden]="form.controls.shippingCity.valid || (form.controls.shippingCity.pristine && !submitted)">field required and should be alphabets only</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingCity" [value]="form.value.shippingAddress.checkAddress?form.value.serviceAddress.city:form.value.shippingAddress.shippingCity">
                     </div>
                     <div class="col-sm-7">
                         <label for="horizontalFormPassword" class="col-sm-3 control-label">State</label>
@@ -195,11 +191,11 @@
                         <div class="row">
                           <select class="form-control" id="inputSelect" formControlName="shippingState">
                             <option selected="" value=" - Select -">&nbsp;- Select -</option>
-                            <option value="Alabama" [attr.selected]="form.value.checkAddress ? form.value.state=='Alabama'? true:null : null">Alabama</option>
-                            <option value="Alaska" [attr.selected]="form.value.checkAddress ? form.value.state=='Alaska'? true:null : null">Alaska</option>
-                            <option value="Arizona" [attr.selected]="form.value.checkAddress ? form.value.state=='Arizona'? true:null : null">Arizona</option>
-                            <option value="Arkansas" [attr.selected]="form.value.checkAddress ? form.value.state=='Arkansas'? true:null : null">Arkansas</option>
-                            <option value="California" [attr.selected]="form.value.checkAddress ? form.value.state=='California'? true:null : null">California</option>
+                            <option value="Alabama" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.state=='Alabama'? true:null : null">Alabama</option>
+                            <option value="Alaska" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.state=='Alaska'? true:null : null">Alaska</option>
+                            <option value="Arizona" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.state=='Arizona'? true:null : null">Arizona</option>
+                            <option value="Arkansas" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.state=='Arkansas'? true:null : null">Arkansas</option>
+                            <option value="California" [attr.selected]="form.value.shippingAddress.checkAddress ? form.value.serviceAddress.state=='California'? true:null : null">California</option>
                           </select>
                           </div>
                         </div>
@@ -210,8 +206,7 @@
                 <div class="form-group">
                   <label for="horizontalFormPassword" class="col-sm-3 control-label">Zip Code</label>
                   <div class="col-sm-2">
-                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingZipCode" [value]="form.value.checkAddress?form.value.zipCode:form.value.shippingZipCode" pattern="^([0-9]+-)*[0-9]+$">
-                    <p style="color:red;" [hidden]="form.controls.shippingZipCode.valid || (form.controls.shippingZipCode.pristine && !submitted)">please provide valid zip code</p>
+                    <input type="text" class="form-control" id="horizontalFormPassword" formControlName="shippingZipCode" [value]="form.value.shippingAddress.checkAddress?form.value.serviceAddress.zipCode:form.value.shippingAddress.shippingZipCode" >
                   </div>
                 </div>
                 <div class="form-group">
@@ -220,10 +215,15 @@
                   </div>
                 </div>
                 </div>
+                </div>
               </form>
             </div>
           </div>
           <hr>
+          <pre>
+            {{form.value | json}}
+            
+            </pre>
           <div>
           <div class="row">
             <div class="col-sm-12">
