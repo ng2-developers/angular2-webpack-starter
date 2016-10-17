@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pricing, ActiveStatus , ProductVariant } from '../common/models/pricing.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-pricing',
@@ -15,6 +16,9 @@ export class ProductPricingComponent {
   activeIndex: string;
   // status: ActiveStatus;
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
+
+  constructor(
+  private router: Router) { }
 
   onTermClick(term: string) {
     this.term = term;
@@ -49,5 +53,9 @@ export class ProductPricingComponent {
       productVariant: variant
     };
     this.currentPrice = price;
+  }
+
+  nextPage() {
+    this.router.navigate(['/locations']);
   }
 }

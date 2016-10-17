@@ -26,7 +26,6 @@ import { ProductModule }    from './product/product.module';
 import { UserAndSecurityModule } from './user-management/user-and-security.module';
 import { CartModule } from './shopping-cart/cart.module';
 import { OrderModule } from './order/order.module';
-import { LocationsModule } from './locations/locations.module';
 import { PaymentModule } from './payment/payment.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -35,7 +34,8 @@ import { userReducer } from './common/reducers/user.reducer';
 import { productsReducer } from './common/reducers/products.reducer';
 import { pricesReducer } from './common/reducers/prices.reducer';
 import { cartReducer } from './common/reducers/cart.reducer';
-
+import { AppRoutingModule } from './app-routing.module';
+import { LocationsModule } from './locations/locations.module';
 
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user-effects.component';
@@ -76,9 +76,10 @@ type StoreType = {
     UserAndSecurityModule,
     CartModule,
     OrderModule,
-    LocationsModule,
     PaymentModule,
-    RouterModule.forRoot(ROUTES, { useHash: true }),
+    AppRoutingModule,
+    LocationsModule,
+//    RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore({  user: userReducer ,
                                 products: productsReducer ,
                                 prices: pricesReducer,
