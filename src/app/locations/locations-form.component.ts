@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   EnterpriseAddress,
   ContactInfo,
@@ -16,6 +16,7 @@ import { Location } from '../common/models/locations.model';
 export class LocationsFormComponent implements OnInit {
   form: FormGroup;
   locationInfo: SDWANLocationInfo;
+  @Output() locationEvent = new EventEmitter();
   //  EnterpriseAddress
   //  ContactInfo
   //  SDWANLocationInfo
@@ -61,6 +62,7 @@ export class LocationsFormComponent implements OnInit {
     //this.locations.push(this.form.value);
     //console.info(this.locations);
     //this.form.reset();
+     this.locationEvent.emit(this.locationInfo);
   }
 
 
