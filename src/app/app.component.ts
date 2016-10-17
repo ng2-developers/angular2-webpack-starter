@@ -18,8 +18,7 @@ import { AppState } from './app.service';
   ],
   templateUrl: './app.component.html'
 })
-export class App {
-
+export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
 
