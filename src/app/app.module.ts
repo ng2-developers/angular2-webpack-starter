@@ -39,7 +39,8 @@ import { LocationsModule } from './locations/locations.module';
 
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user-effects.component';
-
+import { User } from './common/models/user.model';
+import { ShoppingCart } from './common/models/cart.model';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -51,6 +52,16 @@ type StoreType = {
   state: InternalStateType,
   restoreInputValues: () => void,
   disposeOldHosts: () => void
+};
+
+const initialCartState: ShoppingCart = {
+    lineItems: []
+};
+
+const initialUserState: User = {
+    id: 0,
+    email: '',
+    loggedIn: false
 };
 
 /**
@@ -83,7 +94,10 @@ type StoreType = {
     StoreModule.provideStore({  user: userReducer ,
                                 products: productsReducer ,
                                 prices: pricesReducer,
-                                cart: cartReducer }),
+                                cart: cartReducer }, {
+                                  user: initialUserState,
+                                  cart: initialCartState
+                                }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
         visible: false,

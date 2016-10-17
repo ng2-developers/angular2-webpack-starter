@@ -26,24 +26,25 @@ constructor(public cartService: CartService,
 
     }
   ngOnInit() {
-  /*  let lineItem = {
+    let lineItem = {
         id: 1,
         productName: 'SDWAN',
         productId: 'SDWAN',
         productTemplateName: 'SDWAN BASIC',
-        productTemplateId: 'SDWANBASIC'
+        productTemplateId: 'SDWANBASIC',
+        locations: []
       };
-     this.cartService.addItem(lineItem);*/
+     this.cartService.addItem(lineItem);
   }
 
   locationSubmit($event) {
      console.log($event);
-  /*  console.log($event);
     let  newLocation = {
         productTemplateId: 'SDWANBASIC',
-        location: $event
+        location: <SDWANLocationInfo>$event
       };
-    this.cartService.updateLocation(<LocationInfo>newLocation);*/
+      console.log(newLocation);
+    this.cartService.updateLocation(<LocationInfo>newLocation);
   }
 
 }
