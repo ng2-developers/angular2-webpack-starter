@@ -11,7 +11,7 @@ import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   imports: [
-      RouterModule.forRoot(ROUTES, { useHash: true })
+      RouterModule.forRoot(ROUTES, { useHash: false })
   ],
   exports: [RouterModule],
   providers: []

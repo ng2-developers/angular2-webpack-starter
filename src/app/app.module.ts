@@ -42,6 +42,8 @@ import { UserEffects } from './effects/user-effects.component';
 import { User } from './common/models/user.model';
 import { ShoppingCart } from './common/models/cart.model';
 
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
+
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
@@ -105,7 +107,8 @@ const initialUserState: User = {
       })
     }),
     StoreLogMonitorModule,
-    EffectsModule.run(UserEffects)
+    EffectsModule.run(UserEffects),
+    Ng2PageScrollModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
