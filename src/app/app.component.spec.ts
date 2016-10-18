@@ -19,4 +19,7 @@ describe('App', () => {
     expect(app.angularclassLogo).toEqual('assets/img/angularclass-avatar.png');
   }));
 
+  it('should have a CenturyLink nav bar', inject([ AppComponent ], (app: AppComponent) => {
+    expect(app.ctlNavBar).toEqual('<ctl-nav-bar></ctl-nav-bar>');
+  }));
 });

@@ -20,7 +20,8 @@ import { AppState } from './app.service';
 })
 export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
-  name = 'Angular 2 Webpack Starter';
+  name = 'SDWAN';
+  ctlNavBar = '<ctl-nav-bar></ctl-nav-bar>';
 
 
   constructor(

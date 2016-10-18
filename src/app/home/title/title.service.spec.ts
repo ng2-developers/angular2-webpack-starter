@@ -28,6 +28,7 @@ describe('Title', () => {
     ]}));
 
   it('should have http', inject([ Title ], (title: Title) => {
+    spyOn(console, 'log');
     expect(!!title.http).toEqual(true);
   }));
 
