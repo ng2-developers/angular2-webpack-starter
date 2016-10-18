@@ -10,7 +10,7 @@ import { ShoppingCart, LineItem, SDWANLocationInfo, LocationInfo } from '../mode
 
 
 
-const BASE_URL = 'http://localhost:3001/cart/';
+const BASE_URL = 'http://ds-fyxnwq1:3001/cart/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 

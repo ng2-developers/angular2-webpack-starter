@@ -17,7 +17,7 @@ import { CartState } from '../models/cart.model';
       2) Handle login and logout methods
 */
 
-const BASE_URL = 'http://localhost:3001/user/';
+const BASE_URL = 'http://ds-fyxnwq1:3001/user/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 

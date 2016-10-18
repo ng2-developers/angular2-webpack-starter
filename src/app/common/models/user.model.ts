@@ -1,4 +1,5 @@
 import { CartState, ShoppingCart } from './cart.model';
+import { ProductVariant } from './pricing.model';
 
 export interface User {
     id: number;
@@ -10,6 +11,7 @@ export interface User {
     rememberMe?: boolean;
     token?: string;
     loggedIn: boolean;
+    status?:ActiveStatus;
 }
 
 export interface EnterpriseInfo {
@@ -23,3 +25,11 @@ export interface CartInfo {
     cartItemCount: number;
 }
 
+export interface ActiveStatus {
+    mode: string;
+    sku: string;
+    term?: string;
+    name?: string;
+    productVariant?: ProductVariant;
+    transport?:string;
+}

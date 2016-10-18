@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { Pricing } from '../models/pricing.model';
+import { Pricing,ActiveStatus } from '../models/pricing.model';
 
 
 
@@ -16,13 +16,14 @@ import { Pricing } from '../models/pricing.model';
       2) Handle login and logout methods
 */
 
-const BASE_URL = 'http://localhost:3001/prices/';
+const BASE_URL = 'http://ds-fyxnwq1:3001/prices/';
 const HEADER = { headers: new Headers({ 'Content-Type': 'application/json' }) };
 
 
 @Injectable()
 export class PricingService implements OnInit {
     pricing: Observable<Pricing>;
+    activeStatus: Observable<ActiveStatus>;
     constructor(
         private http: Http, public store: Store<AppStore>
     ) {
@@ -50,11 +51,10 @@ export class PricingService implements OnInit {
         return Observable.throw(errMsg);
     }
 
-    /* 
-        setActiveSelection(item: ActiveService) {
-
-            this.store.dispatch({ type: 'UPDATE_ACTIVE_SELECTION', payload: entInfo });
+     
+        setActiveSelection(item: ActiveStatus) {
+            this.store.dispatch({ type: 'UPDATE_ACTIVE_SELECTION', payload: item });
         }
-    */
+    
 
 }
