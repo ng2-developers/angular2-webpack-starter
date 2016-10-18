@@ -21,6 +21,7 @@ export class LocationsComponent implements OnInit {
    sdwanLocationInfo: SDWANLocationInfo;
    contactInfo: ContactInfo;
    enterpriseAddress: EnterpriseAddress;
+   // Subscribe to ActiveStatus from user Store
 
 
 constructor(public cartService: CartService,

@@ -31,5 +31,6 @@ export interface ActiveStatus {
     mode: string;
     sku: string;
     term?: string;
+    name?: string;
     productVariant?: ProductVariant;
 }

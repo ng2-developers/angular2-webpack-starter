@@ -9,7 +9,8 @@
     "productName": "SDWAN",
     "productId": "SDWAN",
     "productTemplateName": "SDWAN BASIC",
-    "productTemplateId": "SDWANBASIC"
+    "productTemplateId": "SDWANBASIC",
+    "locations": []
   },
   "products": [
     {

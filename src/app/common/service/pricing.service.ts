@@ -50,4 +50,11 @@ export class PricingService implements OnInit {
         return Observable.throw(errMsg);
     }
 
+    /* 
+        setActiveSelection(item: ActiveService) {
+
+            this.store.dispatch({ type: 'UPDATE_ACTIVE_SELECTION', payload: entInfo });
+        }
+    */
+
 }

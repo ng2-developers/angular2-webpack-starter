@@ -53,6 +53,7 @@ export class ProductPricingComponent {
       productVariant: variant
     };
     this.currentPrice = price;
+    // this.pricingService.setActiveSelection(this.status);
   }
 
   nextPage() {
