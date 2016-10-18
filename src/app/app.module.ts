@@ -36,7 +36,6 @@ import { pricesReducer } from './common/reducers/prices.reducer';
 import { cartReducer } from './common/reducers/cart.reducer';
 import { AppRoutingModule } from './app-routing.module';
 import { LocationsModule } from './locations/locations.module';
-import { ContactUsModule } from './common/contact-us/contact-us.module';
 
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user-effects.component';
@@ -93,7 +92,6 @@ const initialUserState: User = {
     PaymentModule,
     AppRoutingModule,
     LocationsModule,
-    ContactUsModule,
 //    RouterModule.forRoot(ROUTES, { useHash: true }),
     StoreModule.provideStore({  user: userReducer ,
                                 products: productsReducer ,
