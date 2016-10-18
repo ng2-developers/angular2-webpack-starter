@@ -2,7 +2,10 @@ import { Component, Input, EventEmitter, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { SDWANLocationInfo, ContactInfo, EnterpriseAddress, LocationInfo } from '../common/models/cart.model';
+import { SDWANLocationInfo,
+          ContactInfo,
+          EnterpriseAddress,
+          LocationInfo } from '../common/models/cart.model';
 
 import { CartService } from '../common/service/cart.service';
 import { Store, Action } from '@ngrx/store';

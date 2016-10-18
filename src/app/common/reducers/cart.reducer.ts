@@ -81,14 +81,13 @@ export const cartReducer: ActionReducer<ShoppingCart>
               });
 
               if (locations.length === 0 || !found) {
-                console.log("234234");
                 locations.push(action.payload.location);
               }
               console.log(locations);
               return Object.assign({}, lineItem, {
                 locations: [...locations]
               });
-            } else { console.log('in else'); console.log(state); return lineItem; }
+            } else { return lineItem; }
           }) : state
         });
         return state;
@@ -104,7 +103,7 @@ export const cartReducer: ActionReducer<ShoppingCart>
         state = Object.assign({}, state, {
           lineItems: (state.lineItems !== undefined) ? state.lineItems.map(lineItem => {
             if (lineItem.productTemplateId === action.payload.productTemplateId
-              && lineItem.locations !== undefined ) {
+              && lineItem.locations !== undefined) {
               let locations = lineItem.locations.filter(location => {
                 return location.id !== action.payload.location.id;
               });

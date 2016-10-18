@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Location } from '../common/models/locations.model';
 
+import { FingerPrintService } from '../common/service/fingerprint.service';
+
 @Component({
   selector: 'locations-form',
   templateUrl: './locations-form.component.html'
@@ -57,6 +59,10 @@ export class LocationsFormComponent implements OnInit {
 
   onSubmit() {
     this.locationInfo = this.form.value;
+    this.locationInfo = Object.assign({},
+                        this.locationInfo,
+                        { id: FingerPrintService.UUID()}
+                        );
     console.log(this.locationInfo);
 
     //this.locations.push(this.form.value);
