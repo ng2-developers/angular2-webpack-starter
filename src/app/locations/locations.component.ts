@@ -14,8 +14,6 @@ import { Pricing,ActiveStatus } from '../common/models/pricing.model';
 import { User } from '../common/models/user.model';
 import { PricingService } from '../common/service/pricing.service';
 
-
-
 @Component({
   selector: 'locations',
   templateUrl: './locations.component.html'
@@ -30,11 +28,12 @@ export class LocationsComponent implements OnInit {
    user: Observable<User>;
 
 
+
 constructor(public cartService: CartService,
     public store: Store<AppStore>) {
       this.user = <Observable<User>>store.select('user');
-
     }
+
   ngOnInit() {
     let lineItem = {
         id: 1,

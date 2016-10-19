@@ -64,7 +64,8 @@ const initialCartState: ShoppingCart = {
 const initialUserState: User = {
   id: 0,
   email: '',
-  loggedIn: false
+  loggedIn: false,
+  breadcrumbs: []
 };
 
 /**

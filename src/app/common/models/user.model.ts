@@ -1,5 +1,6 @@
 import { CartState, ShoppingCart } from './cart.model';
 import { ProductVariant, ActiveStatus } from './pricing.model';
+import { Breadcrumb } from './breadcrumb.model';
 
 export interface User {
     id: number;
@@ -12,6 +13,7 @@ export interface User {
     token?: string;
     loggedIn: boolean;
     status?: ActiveStatus;
+    breadcrumbs?: Breadcrumb[];
 }
 
 export interface EnterpriseInfo {

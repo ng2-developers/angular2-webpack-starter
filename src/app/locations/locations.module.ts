@@ -7,6 +7,7 @@ import { LocationsBatchUploadComponent } from './locations-batch-upload.componen
 import { LocationsListComponent }       from './locations-list.component';
 import { LocationsFormComponent }       from './locations-form.component';
 import { LocationsRoutingModule }       from './locations-routing.module';
+import { BreadcrumbComponent }          from '../common/breadcrumb/breadcrumb.component';
 
 @NgModule({
     imports: [ FormsModule,
@@ -20,7 +21,8 @@ import { LocationsRoutingModule }       from './locations-routing.module';
     declarations: [ LocationsComponent,
                     LocationsBatchUploadComponent,
                     LocationsListComponent,
-                    LocationsFormComponent ],
+                    LocationsFormComponent,
+                    BreadcrumbComponent ],
     providers: []
 })
 export class LocationsModule { }
