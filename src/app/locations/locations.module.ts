@@ -8,6 +8,8 @@ import { LocationsListComponent }       from './locations-list.component';
 import { LocationsFormComponent }       from './locations-form.component';
 import { LocationsRoutingModule }       from './locations-routing.module';
 import { BreadcrumbComponent }          from '../common/breadcrumb/breadcrumb.component';
+import { ControlMessagesComponent }     from '../common/validations/control-messages.component';
+import { Validations }                  from '../common/validations/validations';
 
 @NgModule({
     imports: [ FormsModule,
@@ -22,7 +24,8 @@ import { BreadcrumbComponent }          from '../common/breadcrumb/breadcrumb.co
                     LocationsBatchUploadComponent,
                     LocationsListComponent,
                     LocationsFormComponent,
-                    BreadcrumbComponent ],
-    providers: []
+                    BreadcrumbComponent,
+                    ControlMessagesComponent ],
+    providers: [ Validations ]
 })
 export class LocationsModule { }
