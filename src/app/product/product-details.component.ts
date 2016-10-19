@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Store, Action } from '@ngrx/store';
-
-
 import { AppStore } from '../common/models/appstore.model';
 import { Product } from '../common/models/product.model';
-import { Pricing , ActiveStatus } from '../common/models/pricing.model';
+import { Pricing, ActiveStatus } from '../common/models/pricing.model';
 import {
   ShoppingCart,
   LineItem,
@@ -56,7 +54,7 @@ export class ProductDetailsComponent {
     this.loading = false;
     this.error = false;
     this.loadProduct();
-  //  this.loadPricing();
+    //  this.loadPricing();
     this.title = 'Description';
     this.term = '12';
     this.status = {
@@ -70,6 +68,24 @@ export class ProductDetailsComponent {
       this.updateLocation();
       this.deleteLocation();*/
     // this.products.subscribe(v => console.log(v));
+
+  }
+
+  // workaround due to hashLocationStrategy issue
+  // https://github.com/angular/angular/issues/6595
+  public onClickLinkFeat(event) {
+    event.preventDefault();
+    document.getElementById('features').scrollIntoView();
+  }
+
+  public onClickLinkDesc(event) {
+    event.preventDefault();
+    document.getElementById('description').scrollIntoView();
+  }
+
+  public onClickLinkPricing(event) {
+    event.preventDefault();
+    document.getElementById('pricing').scrollIntoView();
   }
 
   public setPage(pageNo: number): void {
@@ -81,35 +97,35 @@ export class ProductDetailsComponent {
     console.log('Number items per page: ' + event.itemsPerPage);
   };
 
-/*
-  private loadPricing() {
-    this.loading = true;
-    this.error = false;
-    this.errorAlert = null;
-    this.pricingService.loadPrices()
-      .map(res => {
-        //    console.log(res);
-        return res;
-      })
-      .map(payload => ({ type: 'ADD_PRICES', payload }))
-      .subscribe(
-      action => {
-        this.store.dispatch(action);
-        this.loading = false;
-      },
-      error => {
-        this.errorAlert = <Alert>{
-          type: 'error',
-          header: 'Warning!',
-          message: <any>error
-        };
-        this.loading = false;
-        this.error = true;
-      },
-      () => this.loading = false);
-
-  }
-*/
+  /*
+    private loadPricing() {
+      this.loading = true;
+      this.error = false;
+      this.errorAlert = null;
+      this.pricingService.loadPrices()
+        .map(res => {
+          //    console.log(res);
+          return res;
+        })
+        .map(payload => ({ type: 'ADD_PRICES', payload }))
+        .subscribe(
+        action => {
+          this.store.dispatch(action);
+          this.loading = false;
+        },
+        error => {
+          this.errorAlert = <Alert>{
+            type: 'error',
+            header: 'Warning!',
+            message: <any>error
+          };
+          this.loading = false;
+          this.error = true;
+        },
+        () => this.loading = false);
+  
+    }
+  */
   private loadProduct() {
     this.loading = true;
     this.error = false;
