@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Pricing, ActiveStatus , ProductVariant } from '../common/models/pricing.model';
+import { PricingService } from '../common/service/pricing.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +19,8 @@ export class ProductPricingComponent {
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   constructor(
-  private router: Router) { }
+  private router: Router,
+  private pricingService: PricingService) { }
 
   onTermClick(term: string) {
     this.term = term;
@@ -50,13 +52,15 @@ export class ProductPricingComponent {
       mode: mode,
       sku: sku,
       term: this.term,
-      productVariant: variant
+      productVariant: variant,
+      transport: mode === 'own' ? this.options[1] : this.options[2]
     };
     this.currentPrice = price;
     // this.pricingService.setActiveSelection(this.status);
   }
 
   nextPage() {
+    this.pricingService.setActiveSelection(this.status);
     this.router.navigate(['/locations']);
   }
 }

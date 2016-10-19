@@ -1,6 +1,6 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule , FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -21,15 +21,17 @@ import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
 import { CtlHomeComponent } from './home/ctl-home.component';
-import { CoreModule }  from './common/core.module';
-import { ProductModule }    from './product/product.module';
+import { CoreModule } from './common/core.module';
+import { ProductModule } from './product/product.module';
 import { UserAndSecurityModule } from './user-management/user-and-security.module';
 import { CartModule } from './shopping-cart/cart.module';
 import { OrderModule } from './order/order.module';
 import { PaymentModule } from './payment/payment.module';
-import { StoreModule } from '@ngrx/store';
+import { Store, StoreModule, combineReducers } from '@ngrx/store';
+import { compose } from '@ngrx/core/compose';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+import { localStorageSync } from 'ngrx-store-localstorage';
 import { userReducer } from './common/reducers/user.reducer';
 import { productsReducer } from './common/reducers/products.reducer';
 import { pricesReducer } from './common/reducers/prices.reducer';
@@ -56,20 +58,20 @@ type StoreType = {
 };
 
 const initialCartState: ShoppingCart = {
-    lineItems: []
+  lineItems: []
 };
 
 const initialUserState: User = {
-    id: 0,
-    email: '',
-    loggedIn: false
+  id: 0,
+  email: '',
+  loggedIn: false
 };
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
 @NgModule({
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   declarations: [
     AppComponent,
     AboutComponent,
@@ -91,14 +93,19 @@ const initialUserState: User = {
     PaymentModule,
     AppRoutingModule,
     LocationsModule,
-//    RouterModule.forRoot(ROUTES, { useHash: true }),
-    StoreModule.provideStore({  user: userReducer ,
-                                products: productsReducer ,
-                                prices: pricesReducer,
-                                cart: cartReducer }, {
-                                  user: initialUserState,
-                                  cart: initialCartState
-                                }),
+    //    RouterModule.forRoot(ROUTES, { useHash: true }),
+    StoreModule.provideStore(compose(
+      localStorageSync(['user'], true),
+      combineReducers
+    )({
+      user: userReducer,
+      products: productsReducer,
+      prices: pricesReducer,
+      cart: cartReducer
+    }), {
+        user: initialUserState,
+        cart: initialCartState
+      }),
     StoreDevtoolsModule.instrumentStore({
       monitor: useLogMonitor({
         visible: false,
@@ -114,7 +121,7 @@ const initialUserState: User = {
   ]
 })
 export class AppModule {
-  constructor(public appRef: ApplicationRef, public appState: AppState) {}
+  constructor(public appRef: ApplicationRef, public appState: AppState) { }
 
   hmrOnInit(store: StoreType) {
     if (!store || !store.state) return;
@@ -140,7 +147,7 @@ export class AppModule {
     // recreate root elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // save input values
-    store.restoreInputValues  = createInputTransfer();
+    store.restoreInputValues = createInputTransfer();
     // remove styles
     removeNgStyles();
   }

@@ -6,7 +6,7 @@ import { Observer } from 'rxjs/Observer';
 
 import { Store } from '@ngrx/store';
 import { AppStore } from '../models/appstore.model';
-import { Pricing } from '../models/pricing.model';
+import { Pricing, ActiveStatus } from '../models/pricing.model';
 
 
 
@@ -50,11 +50,8 @@ export class PricingService implements OnInit {
         return Observable.throw(errMsg);
     }
 
-    /* 
-        setActiveSelection(item: ActiveService) {
-
-            this.store.dispatch({ type: 'UPDATE_ACTIVE_SELECTION', payload: entInfo });
-        }
-    */
+    setActiveSelection(item: ActiveStatus) {
+        this.store.dispatch({ type: 'UPDATE_ACTIVE_SELECTION', payload: item });
+    }
 
 }

@@ -10,6 +10,11 @@ import { SDWANLocationInfo,
 import { CartService } from '../common/service/cart.service';
 import { Store, Action } from '@ngrx/store';
 import { AppStore } from '../common/models/appstore.model';
+import { Pricing,ActiveStatus } from '../common/models/pricing.model';
+import { User } from '../common/models/user.model';
+import { PricingService } from '../common/service/pricing.service';
+
+
 
 @Component({
   selector: 'locations',
@@ -22,11 +27,12 @@ export class LocationsComponent implements OnInit {
    contactInfo: ContactInfo;
    enterpriseAddress: EnterpriseAddress;
    // Subscribe to ActiveStatus from user Store
+   user: Observable<User>;
 
 
 constructor(public cartService: CartService,
     public store: Store<AppStore>) {
-
+      this.user = <Observable<User>>store.select('user');
 
     }
   ngOnInit() {
