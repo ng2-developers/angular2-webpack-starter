@@ -36,6 +36,7 @@ export class ProductDetailsComponent {
   errorAlert: Alert;
   term: String;
   status: ActiveStatus;
+  activeNav: string;
 
 
   public totalItems: number = 64;
@@ -57,6 +58,7 @@ export class ProductDetailsComponent {
     //  this.loadPricing();
     this.title = 'Description';
     this.term = '12';
+    this.activeNav = 'description';
     this.status = {
       mode: '',
       sku: ''
@@ -74,16 +76,19 @@ export class ProductDetailsComponent {
   // workaround due to hashLocationStrategy issue
   // https://github.com/angular/angular/issues/6595
   public onClickLinkFeat(event) {
+    this.activeNav = 'features';
     event.preventDefault();
     document.getElementById('features').scrollIntoView();
   }
 
   public onClickLinkDesc(event) {
+    this.activeNav = 'description';
     event.preventDefault();
     document.getElementById('description').scrollIntoView();
   }
 
   public onClickLinkPricing(event) {
+    this.activeNav = 'pricing';
     event.preventDefault();
     document.getElementById('pricing').scrollIntoView();
   }
