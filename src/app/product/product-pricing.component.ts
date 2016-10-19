@@ -15,12 +15,15 @@ export class ProductPricingComponent {
   transport: string;
   currentPrice: number;
   activeIndex: string;
+  selected: boolean;
   // status: ActiveStatus;
   options = ['Product Option', 'With My Own Transport', 'With CenturyLink Transport'];
 
   constructor(
   private router: Router,
-  private pricingService: PricingService) { }
+  private pricingService: PricingService) {
+    this.selected = false;
+   }
 
   onTermClick(term: string) {
     this.term = term;
@@ -56,6 +59,7 @@ export class ProductPricingComponent {
       transport: mode === 'own' ? this.options[1] : this.options[2]
     };
     this.currentPrice = price;
+    this.selected = true;
     // this.pricingService.setActiveSelection(this.status);
   }
 
