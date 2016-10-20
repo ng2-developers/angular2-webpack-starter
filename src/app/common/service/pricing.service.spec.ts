@@ -47,13 +47,13 @@ beforeEach( TestBed.configureTestingModule({
 */ 
 
 
-it('should get data from the server', inject([ PricingService ], (PS: PricingService) => {
+/* it('should get data from the server', inject([ PricingService ], (PS: PricingService) => {
     spyOn(console, 'log');
     let jsonString = PS.loadPrices();
     console.log("xxxx " + jsonString);
     //expect(jsonString.toContain('1');
     //expect(jsonString.productVariants.sku).toEqual('SDWANBASIC');
-  }));
+  })); */
 
 /* it('should return json values', inject([ PricingService ], (PS: PricingService) => {
     let jsonString = PS.loadPrices();

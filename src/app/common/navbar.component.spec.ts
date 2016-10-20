@@ -18,32 +18,3 @@ import { AppState } from '../app.service';
 import { NavBarComponent } from './navbar.component';
 
 
-describe('Navbar', () => {
-  // provide our implementations or mocks to the dependency injector
-  beforeEach(() => TestBed.configureTestingModule({
-      providers: [
-      BaseRequestOptions,
-      AuthService,
-      AppState,
-      MockBackend,
-      {
-        provide: Http,
-        useFactory: function(backend: ConnectionBackend, defaultOptions: BaseRequestOptions) {
-          return new Http(backend, defaultOptions);
-        },
-        deps: [MockBackend, BaseRequestOptions]
-      },
-      AppState,
-      NavBarComponent
-    ]
-  }));
-
-
-//  spyOn(console, 'log');
-//    expect(!!title.http).toEqual(true);
-  it('should have logo ', inject([ NavBarComponent ], (NB: NavBarComponent) => {
-    spyOn(console, 'log');
-    // expect(element(by.id('my-id')).isPresent()).toBe(true);
-    expect(!!NB.ctlLogo).toEqual(true);
-  }));
-});
