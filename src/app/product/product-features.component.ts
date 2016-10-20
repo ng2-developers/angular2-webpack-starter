@@ -18,7 +18,7 @@ export class ProductFeaturesComponent {
    constructor(private _router: Router) { }
 
 
-   contactUs(){
+   contactUs() {
      this._router.navigate(['/contact-us']);
    }
 }
