@@ -10,23 +10,13 @@ import { ContactUs } from './../models/contact-us.model';
 })
 export class ContactUsComponent implements OnInit{
   form: FormGroup;
-  /*ControlGroup({
-    firstName: new Control('', Validators.required),
-    lastName: new Control('', Validators.required),
-    primaryPhone: new Control('', Validators.required),
-    email: new Control('', Validators.required),
-    companyName: new Control('', Validators.required),
-    jobTitle: new Control('', Validators.required),
-    comments: new Control('', Validators.required)
-  });*/
-
-          firstName = new FormControl("", Validators.required);
-          lastName = new FormControl("", Validators.required);
-          primaryPhone = new FormControl("", Validators.required);
-          email = new FormControl("", Validators.required);
-          companyName = new FormControl("", Validators.maxLength(55));
-          jobTitle = new FormControl("", Validators.maxLength(55));
-          comments = new FormControl("", Validators.minLength(25));
+  firstName = new FormControl("", Validators.required);
+  lastName = new FormControl("", Validators.required);
+  primaryPhone = new FormControl("", Validators.required);
+  email = new FormControl("", Validators.required);
+  companyName = new FormControl("", Validators.maxLength(55));
+  jobTitle = new FormControl("", Validators.maxLength(55));
+  comments = new FormControl("", Validators.minLength(25));
 
   constructor(_form: FormBuilder){
         this.form = _form.group({
@@ -41,18 +31,10 @@ export class ContactUsComponent implements OnInit{
   }
 
   ngOnInit() {
-    // this.form = this._form.group({
-    //   firstName: new FormControl("", Validators.required),
-    //   lastName: new FormControl("", Validators.required),
-    //   primaryPhone: new FormControl("", Validators.required),
-    //   email: new FormControl("", Validators.required),
-    //   companyName: new FormControl("", Validators.maxLength(55)),
-    //   jobTitle: new FormControl("", Validators.maxLength(55)),
-    //   comments: new FormControl("", Validators.minLength(25))
-    // });
+
   }
 
   contactUs(){
-    console.log("FORM VALUES: " + this.form.value);
+    console.log("FORM VALUES: " + JSON.stringify(this.form.value));
   }
 }
