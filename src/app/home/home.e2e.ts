@@ -8,7 +8,7 @@ describe('App', () => {
 
   it('should have a title', () => {
     let subject = browser.getTitle();
-    let result  = 'SDWAN | CenturyLink';
+    let result  = 'SD-WAN | CenturyLink';
     expect(subject).toEqual(result);
   });
 

@@ -24,7 +24,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'SDWAN | CenturyLink',
+  title: 'SD-WAN | CenturyLink',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
