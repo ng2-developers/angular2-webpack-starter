@@ -22,4 +22,5 @@ describe('App', () => {
   it('should have a CenturyLink nav bar', inject([ AppComponent ], (app: AppComponent) => {
     expect(app.ctlNavBar).toEqual('<ctl-nav-bar></ctl-nav-bar>');
   }));
+
 });
