@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule , PreloadAllModules } from '@angular/router';
 import { ROUTES } from './app.routes';
 
 import { HomeComponent } from './home';
@@ -11,7 +11,7 @@ import { LocationsComponent } from './locations/locations.component';
 
 @NgModule({
   imports: [
-      RouterModule.forRoot(ROUTES, { useHash: true })
+      RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule],
   providers: []
