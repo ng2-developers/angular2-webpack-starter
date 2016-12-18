@@ -21,7 +21,8 @@ export const ROUTES: Routes = [
 //    loadChildren: 'app/locations/locations.module#LocationsModule'
   },
   {
-    path: 'detail', loadChildren: () => System.import('./+detail').then((comp: any) => comp.default),
+    path: 'detail', loadChildren: () => System.import('./+detail')
+      .then((comp: any) => comp.default),
   },
   { path: '**', component: NoContentComponent },
 ];
