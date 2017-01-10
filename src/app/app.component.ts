@@ -1,8 +1,11 @@
 /*
  * Angular 2 decorators and services
  */
-import { Component, ViewEncapsulation } from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { AppState } from './app.service';
 
 import { Store, Action } from '@ngrx/store';
@@ -28,7 +31,7 @@ import { ProductsService } from './common/service/products.service';
 export class AppComponent {
   angularclassLogo = 'assets/img/angularclass-avatar.png';
   name = 'Angular 2 Webpack Starter';
-
+  public url = 'https://twitter.com/AngularClass';
 
   constructor(
     public appState: AppState,
@@ -39,7 +42,7 @@ export class AppComponent {
 
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     console.log('Initial App State', this.appState.state);
     //  $("div").css("border", "3px solid red");
     this.loadProductAndPrices();

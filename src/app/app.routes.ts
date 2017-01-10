@@ -7,8 +7,6 @@ import { ContactUsComponent } from './common/contact-us/contact-us.component';
 
 import { DataResolver } from './app.resolver';
 
-
-
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
@@ -20,9 +18,7 @@ export const ROUTES: Routes = [
 //    pathMatch: 'prefix',
 //    loadChildren: 'app/locations/locations.module#LocationsModule'
   },
-  {
-    path: 'detail', loadChildren: () => System.import('./+detail')
-      .then((comp: any) => comp.default),
-  },
-  { path: '**', component: NoContentComponent },
+  { path: 'detail', loadChildren: './+detail#DetailModule'},
+  { path: 'barrel', loadChildren: './+barrel#BarrelModule'},
+  { path: '**',    component: NoContentComponent }
 ];
